@@ -1,3 +1,21 @@
+// --- 1. የድምፅ አነባበብ (Text to Speech) ---
+function speakText(text) {
+    if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US'; // በእንግሊዝኛ እንዲያነብ
+        window.speechSynthesis.speak(utterance);
+    } else {
+        alert("ስልክዎ ድምፅ ማሰማት አይደግፍም።");
+    }
+}
+
+function speakQuestion() {
+    if (quizData[currentQuestion]) {
+        speakText(quizData[currentQuestion].question);
+    }
+}
+
+// --- 2. የፈተና/ኩዊዝ Logic ---
 const quizData = [
     {
         question: "'Good morning' ማለት ምን ማለት ነው?",
@@ -8,6 +26,11 @@ const quizData = [
         question: "'Nice to meet you' የሚለው ሐረግ መቼ ጥቅም ላይ ይውላል?",
         options: ["ሲሰናበቱ", "ሰው ሲያመሰግኑ", "አዲስ ሰው ሲተዋወቁ", "ይቅርታ ሲጠይቁ"],
         correct: 2
+    },
+    {
+        question: "'How are you?' ለሚለው ጥያቄ ትክክለኛ ምላሽ የትኛው ነው?",
+        options: ["I am fine, thank you", "Good morning", "My name is John", "Nice to meet you"],
+        correct: 0
     }
 ];
 
@@ -19,7 +42,7 @@ function loadQuestion() {
     const optElement = document.getElementById("options");
     const feedback = document.getElementById("feedback");
 
-    if (!qElement) return; // ፈተና ገጽ ላይ ካልሆንን ኮዱ እንዳይሳሳት
+    if (!qElement) return;
 
     feedback.innerText = "";
     qElement.innerText = quizData[currentQuestion].question;
@@ -57,7 +80,16 @@ function checkAnswer(selectedIndex) {
 function showScore() {
     document.getElementById("quiz-box").classList.add("hidden");
     document.getElementById("score-box").classList.remove("hidden");
+    
+    // የነጥብ ማስቀመጫ (Local Storage)
+    let highScore = localStorage.getItem("quizHighScore") || 0;
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("quizHighScore", highScore);
+    }
+
     document.getElementById("score-text").innerText = `ከ ${quizData.length} ጥያቄዎች ውስጥ ${score} አግኝተዋል!`;
+    document.getElementById("high-score-text").innerText = `የእርስዎ ከፍተኛ ነጥብ (Best Score): ${highScore} / ${quizData.length}`;
 }
 
 function restartQuiz() {
