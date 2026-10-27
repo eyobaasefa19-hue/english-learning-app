@@ -1,109 +1,110 @@
-// --- 1. የድምፅ አነባበብ (Text to Speech) ---
+// Speech Synthesis Function
 function speakText(text) {
     if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-US'; // በእንግሊዝኛ እንዲያነብ
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
         window.speechSynthesis.speak(utterance);
     } else {
-        alert("ስልክዎ ድምፅ ማሰማት አይደግፍም።");
+        alert("ስልክዎ ድምፅ ማሰማት አይደግፍም::");
     }
 }
 
-function speakQuestion() {
-    if (quizData[currentQuestion]) {
-        speakText(quizData[currentQuestion].question);
-    }
-}
-
-// --- 2. የፈተና/ኩዊዝ Logic ---
+// Interactive Quiz Questions
 const quizData = [
-    {
-        question: "'Good morning' ማለት ምን ማለት ነው?",
-        options: ["እንደምን አመሹ", "እንደምን አደሩ", "መልካም ቀን", "ሰላም"],
-        correct: 1
-    },
     {
         question: "'Nice to meet you' የሚለው ሐረግ መቼ ጥቅም ላይ ይውላል?",
         options: ["ሲሰናበቱ", "ሰው ሲያመሰግኑ", "አዲስ ሰው ሲተዋወቁ", "ይቅርታ ሲጠይቁ"],
         correct: 2
     },
     {
-        question: "'How are you?' ለሚለው ጥያቄ ትክክለኛ ምላሽ የትኛው ነው?",
-        options: ["I am fine, thank you", "Good morning", "My name is John", "Nice to meet you"],
+        question: "'Good morning' ማለት ምን ማለት ነው?",
+        options: ["መልካም ምሽት", "እንደምን አደሩ", "መልካም ቀን", "ደህና ሁኑ"],
+        correct: 1
+    },
+    {
+        question: "'በጣም አመሰግናለሁ' የሚለው በእንግሊዝኛ የትኛው ነው?",
+        options: ["Thank you very much", "You are welcome", "How are you", "Where are you from"],
         correct: 0
+    },
+    {
+        question: "'You are welcome' የሚለው ሐረግ መልስ የሚሆነው ለየትኛው ነው?",
+        options: ["ለሰላምታ", "ለ 'Thank you'", "ለይቅርታ", "ለስንብት"],
+        correct: 1
     }
 ];
 
 let currentQuestion = 0;
 let score = 0;
 
-function loadQuestion() {
-    const qElement = document.getElementById("question");
-    const optElement = document.getElementById("options");
-    const feedback = document.getElementById("feedback");
+function loadQuiz() {
+    const questionEl = document.getElementById("question");
+    const optionsContainer = document.getElementById("options-container");
+    const quizContainer = document.getElementById("quiz-container");
+    const resultContainer = document.getElementById("result-container");
 
-    if (!qElement) return;
+    if (!questionEl || !optionsContainer) return;
 
-    feedback.innerText = "";
-    qElement.innerText = quizData[currentQuestion].question;
-    optElement.innerHTML = "";
+    if (currentQuestion < quizData.length) {
+        const q = quizData[currentQuestion];
+        questionEl.textContent = `${currentQuestion + 1}. ${q.question}`;
+        optionsContainer.innerHTML = "";
 
-    quizData[currentQuestion].options.forEach((option, index) => {
-        const btn = document.createElement("button");
-        btn.innerText = option;
-        btn.onclick = () => checkAnswer(index);
-        optElement.appendChild(btn);
-    });
-}
-
-function checkAnswer(selectedIndex) {
-    const feedback = document.getElementById("feedback");
-    if (selectedIndex === quizData[currentQuestion].correct) {
-        feedback.innerText = "ትክክል ነው! 🎉";
-        feedback.style.color = "green";
-        score++;
+        q.options.forEach((opt, index) => {
+            const btn = document.createElement("button");
+            btn.className = "btn option-btn";
+            btn.textContent = opt;
+            btn.onclick = () => selectOption(index);
+            optionsContainer.appendChild(btn);
+        });
     } else {
-        feedback.innerText = "ተሳስተዋል። ❌";
-        feedback.style.color = "red";
-    }
-
-    setTimeout(() => {
-        currentQuestion++;
-        if (currentQuestion < quizData.length) {
-            loadQuestion();
-        } else {
-            showScore();
+        quizContainer.style.display = "none";
+        resultContainer.style.display = "block";
+        
+        const finalScoreEl = document.getElementById("final-score");
+        if (finalScoreEl) {
+            finalScoreEl.textContent = `ከ ${quizData.length} ጥያቄዎች ውስጥ ${score} አግኝተዋል!`;
         }
-    }, 1200);
+
+        const currentBest = parseInt(localStorage.getItem("bestScore") || "0");
+        if (score > currentBest) {
+            localStorage.getItem("bestScore", score.toString());
+            localStorage.setItem("bestScore", score.toString());
+        }
+
+        const bestScoreDisplay = document.getElementById("best-score-display");
+        if (bestScoreDisplay) {
+            const displayScore = Math.max(score, currentBest);
+            bestScoreDisplay.textContent = `የእርስዎ ከፍተኛ ነጥብ (Best Score): ${displayScore} / ${quizData.length}`;
+        }
+    }
 }
 
-function showScore() {
-    document.getElementById("quiz-box").classList.add("hidden");
-    document.getElementById("score-box").classList.remove("hidden");
-    
-    // የነጥብ ማስቀመጫ (Local Storage)
-    let highScore = localStorage.getItem("quizHighScore") || 0;
-    if (score > highScore) {
-        highScore = score;
-        localStorage.setItem("quizHighScore", highScore);
+function selectOption(selectedIndex) {
+    if (selectedIndex === quizData[currentQuestion].correct) {
+        score++;
     }
-
-    document.getElementById("score-text").innerText = `ከ ${quizData.length} ጥያቄዎች ውስጥ ${score} አግኝተዋል!`;
-    document.getElementById("high-score-text").innerText = `የእርስዎ ከፍተኛ ነጥብ (Best Score): ${highScore} / ${quizData.length}`;
+    currentQuestion++;
+    loadQuiz();
 }
 
 function restartQuiz() {
     currentQuestion = 0;
     score = 0;
-    document.getElementById("quiz-box").classList.remove("hidden");
-    document.getElementById("score-box").classList.add("hidden");
-    loadQuestion();
+    const quizContainer = document.getElementById("quiz-container");
+    const resultContainer = document.getElementById("result-container");
+    if (quizContainer && resultContainer) {
+        quizContainer.style.display = "block";
+        resultContainer.style.display = "none";
+        loadQuiz();
+    }
 }
 
-// ገጹ ሲከፈት ጥያቄውን ጫን
-window.onload = loadQuestion;
-// Profile Page Functionality
+// User Profile Logic
 document.addEventListener("DOMContentLoaded", () => {
+    loadQuiz();
+
     const nameDisplay = document.getElementById("user-name-display");
     const scoreDisplay = document.getElementById("user-score-display");
     const nameInput = document.getElementById("name-input");
