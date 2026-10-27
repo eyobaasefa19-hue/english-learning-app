@@ -2,11 +2,9 @@
 --primary: #4f46e5;
 --primary-hover: #4338ca;
 --secondary: #10b981;
---accent: #f59e0b;
 --bg: #f8fafc;
 --card-bg: #ffffff;
 --text: #0f172a;
---text-muted: #64748b;
 --border: #e2e8f0;
 --radius: 16px;
 }
@@ -76,17 +74,6 @@ transition: all 0.2s ease;
 }
 ​.primary-btn {
 background-color: var(--primary);
-color: white;
-}
-​.primary-btn:active {
-background-color: var(--primary-hover);
-}
-​.secondary-btn {
-background-color: var(--secondary);
-color: white;
-}
-​.accent-btn {
-background-color: var(--accent);
 color: white;
 }
 ​.option-btn {
