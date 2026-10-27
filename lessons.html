@@ -11,48 +11,65 @@
         <h1>የእንግሊዝኛ ትምህርቶች</h1>
     </header>
 
-    <main class="content-container">
-        <section class="card">
-            <h2>ትምህርት 1: የዕለት ተዕለት ሰላምታዎች (Greetings)</h2>
-            <ul class="lesson-list">
-                <li>
-                    <span><strong>Hello!</strong> - ሰላም!</span>
-                    <button onclick="speakText('Hello!')" class="btn-audio">🔊 አነብብ</button>
+    <main class="container">
+        <!-- Lesson 1 -->
+        <div class="card">
+            <h2>ትምህርት 1፡ የዕለት ተዕለት ሰላምታዎች (Greetings)</h2>
+            <ul class="vocab-list">
+                <li class="vocab-item">
+                    <div><strong>Hello!</strong> - ሰላም!</div>
+                    <button class="audio-btn" onclick="speakText('Hello!')">🔊 አነብብ</button>
                 </li>
-                <li>
-                    <span><strong>Good morning!</strong> - እንደምን አደሩ!</span>
-                    <button onclick="speakText('Good morning!')" class="btn-audio">🔊 አነብብ</button>
+                <li class="vocab-item">
+                    <div><strong>Good morning!</strong> - እንደምን አደሩ / አደርሽ / አደራችሁ!</div>
+                    <button class="audio-btn" onclick="speakText('Good morning!')">🔊 አነብብ</button>
                 </li>
-                <li>
-                    <span><strong>How are you?</strong> - እንዴት ነህ/ነሽ?</span>
-                    <button onclick="speakText('How are you?')" class="btn-audio">🔊 አነብብ</button>
-                </li>
-                <li>
-                    <span><strong>I am fine, thank you.</strong> - ደህና ነኝ፣ አመሰግናለሁ።</span>
-                    <button onclick="speakText('I am fine, thank you.')" class="btn-audio">🔊 አነብብ</button>
+                <li class="vocab-item">
+                    <div><strong>How are you?</strong> - እንዴት ነህ / ነሽ / ናችሁ?</div>
+                    <button class="audio-btn" onclick="speakText('How are you?')">🔊 አነብብ</button>
                 </li>
             </ul>
-        </section>
+        </div>
 
-        <section class="card">
-            <h2>ትምህርት 2: እራስን ማስተዋወቅ (Introducing Yourself)</h2>
-            <ul class="lesson-list">
-                <li>
-                    <span><strong>My name is...</strong> - ስሜ ... ይባላል።</span>
-                    <button onclick="speakText('My name is')" class="btn-audio">🔊 አነብብ</button>
+        <!-- Lesson 2 -->
+        <div class="card">
+            <h2>ትምህርት 2፡ ራስን ማስተዋወቅ (Introducing Yourself)</h2>
+            <ul class="vocab-list">
+                <li class="vocab-item">
+                    <div><strong>My name is...</strong> - ስሜ ... ይባላል::</div>
+                    <button class="audio-btn" onclick="speakText('My name is')">🔊 አነብብ</button>
                 </li>
-                <li>
-                    <span><strong>Nice to meet you.</strong> - ስለተገናኘን ደስ ብሎኛል።</span>
-                    <button onclick="speakText('Nice to meet you.')" class="btn-audio">🔊 አነብብ</button>
+                <li class="vocab-item">
+                    <div><strong>Nice to meet you.</strong> - ስለተገናኘን ደስ ብሎኛል::</div>
+                    <button class="audio-btn" onclick="speakText('Nice to meet you.')">🔊 አነብብ</button>
                 </li>
-                <li>
-                    <span><strong>Where are you from?</strong> - ከየት ሀገር ነህ/ነሽ?</span>
-                    <button onclick="speakText('Where are you from?')" class="btn-audio">🔊 አነብብ</button>
+                <li class="vocab-item">
+                    <div><strong>Where are you from?</strong> - ከየት ሀገር ነህ / ነሽ?</div>
+                    <button class="audio-btn" onclick="speakText('Where are you from?')">🔊 አነብብ</button>
                 </li>
             </ul>
-        </section>
+        </div>
 
-        <a href="index.html" class="btn-back">← ወደ ዋና ገጽ ተመለስ</a>
+        <!-- Lesson 3 (NEW) -->
+        <div class="card">
+            <h2>ትምህርት 3፡ ምስጋና እና እሺታ (Polite Expressions)</h2>
+            <ul class="vocab-list">
+                <li class="vocab-item">
+                    <div><strong>Thank you very much!</strong> - በጣም አመሰግናለሁ!</div>
+                    <button class="audio-btn" onclick="speakText('Thank you very much!')">🔊 አነብብ</button>
+                </li>
+                <li class="vocab-item">
+                    <div><strong>You are welcome.</strong> - ምን አደረግሁ / ምንም አይደለም::</div>
+                    <button class="audio-btn" onclick="speakText('You are welcome.')">🔊 አነብብ</button>
+                </li>
+                <li class="vocab-item">
+                    <div><strong>Excuse me / Sorry.</strong> - ይቅርታ::</div>
+                    <button class="audio-btn" onclick="speakText('Excuse me, sorry.')">🔊 አነብብ</button>
+                </li>
+            </ul>
+        </div>
+
+        <a href="index.html" class="back-link">← ወደ ዋና ገጽ ተመለስ</a>
     </main>
 
     <script src="script.js"></script>
