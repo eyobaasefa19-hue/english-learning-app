@@ -14,24 +14,47 @@
     <main class="content-container">
         <section class="card">
             <h2>ትምህርት 1: የዕለት ተዕለት ሰላምታዎች (Greetings)</h2>
-            <ul>
-                <li><strong>Hello!</strong> - ሰላም!</li>
-                <li><strong>Good morning!</strong> - እንደምን አደሩ / አደርሽ / አደራችሁ!</li>
-                <li><strong>How are you?</strong> - እንዴት ነህ / ነሽ / ናችሁ?</li>
-                <li><strong>I am fine, thank you.</strong> - ደህና ነኝ፣ አመሰግናለሁ።</li>
+            <ul class="lesson-list">
+                <li>
+                    <span><strong>Hello!</strong> - ሰላም!</span>
+                    <button onclick="speakText('Hello!')" class="btn-audio">🔊 አነብብ</button>
+                </li>
+                <li>
+                    <span><strong>Good morning!</strong> - እንደምን አደሩ!</span>
+                    <button onclick="speakText('Good morning!')" class="btn-audio">🔊 አነብብ</button>
+                </li>
+                <li>
+                    <span><strong>How are you?</strong> - እንዴት ነህ/ነሽ?</span>
+                    <button onclick="speakText('How are you?')" class="btn-audio">🔊 አነብብ</button>
+                </li>
+                <li>
+                    <span><strong>I am fine, thank you.</strong> - ደህና ነኝ፣ አመሰግናለሁ።</span>
+                    <button onclick="speakText('I am fine, thank you.')" class="btn-audio">🔊 አነብብ</button>
+                </li>
             </ul>
         </section>
 
         <section class="card">
             <h2>ትምህርት 2: እራስን ማስተዋወቅ (Introducing Yourself)</h2>
-            <ul>
-                <li><strong>My name is...</strong> - ስሜ ... ይባላል።</li>
-                <li><strong>Nice to meet you.</strong> - ስለተገናኘን ደስ ብሎኛል።</li>
-                <li><strong>Where are you from?</strong> - ከየት ሀገር ነህ/ነሽ?</li>
+            <ul class="lesson-list">
+                <li>
+                    <span><strong>My name is...</strong> - ስሜ ... ይባላል።</span>
+                    <button onclick="speakText('My name is')" class="btn-audio">🔊 አነብብ</button>
+                </li>
+                <li>
+                    <span><strong>Nice to meet you.</strong> - ስለተገናኘን ደስ ብሎኛል።</span>
+                    <button onclick="speakText('Nice to meet you.')" class="btn-audio">🔊 አነብብ</button>
+                </li>
+                <li>
+                    <span><strong>Where are you from?</strong> - ከየት ሀገር ነህ/ነሽ?</span>
+                    <button onclick="speakText('Where are you from?')" class="btn-audio">🔊 አነብብ</button>
+                </li>
             </ul>
         </section>
 
         <a href="index.html" class="btn-back">← ወደ ዋና ገጽ ተመለስ</a>
     </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
