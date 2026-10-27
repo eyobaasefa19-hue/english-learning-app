@@ -102,3 +102,32 @@ function restartQuiz() {
 
 // ገጹ ሲከፈት ጥያቄውን ጫን
 window.onload = loadQuestion;
+// Profile Page Functionality
+document.addEventListener("DOMContentLoaded", () => {
+    const nameDisplay = document.getElementById("user-name-display");
+    const scoreDisplay = document.getElementById("user-score-display");
+    const nameInput = document.getElementById("name-input");
+    const saveBtn = document.getElementById("save-profile-btn");
+
+    if (nameDisplay && scoreDisplay) {
+        const savedName = localStorage.getItem("userName") || "አልተመዘገበም";
+        const bestScore = localStorage.getItem("bestScore") || "0";
+        
+        nameDisplay.textContent = savedName;
+        scoreDisplay.textContent = bestScore;
+    }
+
+    if (saveBtn) {
+        saveBtn.addEventListener("click", () => {
+            const enteredName = nameInput.value.trim();
+            if (enteredName !== "") {
+                localStorage.setItem("userName", enteredName);
+                if (nameDisplay) nameDisplay.textContent = enteredName;
+                alert("ስምዎት በተሳካ ሁኔታ ተቀምጧል!");
+                nameInput.value = "";
+            } else {
+                alert("እባክዎን ስምዎን ያስገቡ!");
+            }
+        });
+    }
+});
