@@ -1,77 +1,32 @@
-<!DOCTYPE html>
-<html lang="am">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ትምህርቶች - የእንግሊዝኛ መማሪያ</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>የእንግሊዝኛ ትምህርቶች</h1>
-    </header>
-
-    <main class="container">
-        <!-- Lesson 1 -->
-        <div class="card">
-            <h2>ትምህርት 1፡ የዕለት ተዕለት ሰላምታዎች (Greetings)</h2>
-            <ul class="vocab-list">
-                <li class="vocab-item">
-                    <div><strong>Hello!</strong> - ሰላም!</div>
-                    <button class="audio-btn" onclick="speakText('Hello!')">🔊 አነብብ</button>
-                </li>
-                <li class="vocab-item">
-                    <div><strong>Good morning!</strong> - እንደምን አደሩ / አደርሽ / አደራችሁ!</div>
-                    <button class="audio-btn" onclick="speakText('Good morning!')">🔊 አነብብ</button>
-                </li>
-                <li class="vocab-item">
-                    <div><strong>How are you?</strong> - እንዴት ነህ / ነሽ / ናችሁ?</div>
-                    <button class="audio-btn" onclick="speakText('How are you?')">🔊 አነብብ</button>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Lesson 2 -->
-        <div class="card">
-            <h2>ትምህርት 2፡ ራስን ማስተዋወቅ (Introducing Yourself)</h2>
-            <ul class="vocab-list">
-                <li class="vocab-item">
-                    <div><strong>My name is...</strong> - ስሜ ... ይባላል::</div>
-                    <button class="audio-btn" onclick="speakText('My name is')">🔊 አነብብ</button>
-                </li>
-                <li class="vocab-item">
-                    <div><strong>Nice to meet you.</strong> - ስለተገናኘን ደስ ብሎኛል::</div>
-                    <button class="audio-btn" onclick="speakText('Nice to meet you.')">🔊 አነብብ</button>
-                </li>
-                <li class="vocab-item">
-                    <div><strong>Where are you from?</strong> - ከየት ሀገር ነህ / ነሽ?</div>
-                    <button class="audio-btn" onclick="speakText('Where are you from?')">🔊 አነብብ</button>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Lesson 3 (NEW) -->
-        <div class="card">
-            <h2>ትምህርት 3፡ ምስጋና እና እሺታ (Polite Expressions)</h2>
-            <ul class="vocab-list">
-                <li class="vocab-item">
-                    <div><strong>Thank you very much!</strong> - በጣም አመሰግናለሁ!</div>
-                    <button class="audio-btn" onclick="speakText('Thank you very much!')">🔊 አነብብ</button>
-                </li>
-                <li class="vocab-item">
-                    <div><strong>You are welcome.</strong> - ምን አደረግሁ / ምንም አይደለም::</div>
-                    <button class="audio-btn" onclick="speakText('You are welcome.')">🔊 አነብብ</button>
-                </li>
-                <li class="vocab-item">
-                    <div><strong>Excuse me / Sorry.</strong> - ይቅርታ::</div>
-                    <button class="audio-btn" onclick="speakText('Excuse me, sorry.')">🔊 አነብብ</button>
-                </li>
-            </ul>
-        </div>
-
-        <a href="index.html" class="back-link">← ወደ ዋና ገጽ ተመለስ</a>
-    </main>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="am"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#312e81"><meta name="color-scheme" content="light dark"><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css"><title>ትምህርቶች — EyobLingua</title></head>
+<body><header class="subhero"><nav class="nav wrap"><a class="brand" href="index.html">🌍 EyobLingua</a><button class="menu-toggle" id="menu-toggle" aria-label="የምናሌ ዝርዝር ክፈት" aria-expanded="false">☰</button><button class="theme-toggle" id="theme-toggle" type="button" aria-label="ጨለማ/ብርሃን ሁነታ" title="ጨለማ/ብርሃን ሁነታ">◐</button><div class="nav-links" id="nav-links"><a href="index.html">ዋና ገጽ</a><a class="active" href="lessons.html">ትምህርቶች</a><a href="quiz.html">ፈተና</a><a href="profile.html">የእኔ መለያ</a></div></nav><div class="wrap subhero-content"><span class="eyebrow">LESSON LIBRARY</span><h1>የእንግሊዝኛ ትምህርቶች</h1><p>ቃላትን አንብብ፣ ድምፅ አዳምጥ፣ እና ትምህርትን እንደጨረስክ ምልክት አድርግ።</p></div></header>
+<main class="wrap page-main">
+<div class="lesson-tools"><label for="lesson-search">🔎 ትምህርት ፈልግ</label><input id="lesson-search" type="search" placeholder="ለምሳሌ: Greetings, grammar..."><div class="filter-row"><button class="filter-chip active" data-level="all">ሁሉም</button><button class="filter-chip" data-level="beginner">Beginner</button><button class="filter-chip" data-level="intermediate">Intermediate</button><button class="filter-chip" data-level="advanced">Advanced</button></div></div>
+<div id="lesson-list" class="lesson-grid">
+<section class="lesson-card" data-level="beginner" id="beginner"><div class="lesson-card-top"><span class="level-pill">BEGINNER</span><span>⏱ 5 min</span></div><h2>1. Greetings — ሰላምታ</h2><p>ሰዎችን በእንግሊዝኛ እንዴት ሰላም እንደምትላቸው ተማር።</p><div class="vocab-list">
+<div class="vocab-row"><div><strong>Hello!</strong><span>ሰላም!</span><small>Hello, my friend.</small></div><button class="audio-btn" data-speak="Hello!">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>Good morning.</strong><span>እንደምን አደርክ/አደርሽ።</span><small>Good morning, teacher.</small></div><button class="audio-btn" data-speak="Good morning.">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>How are you?</strong><span>እንዴት ነህ/ነሽ?</span><small>How are you today?</small></div><button class="audio-btn" data-speak="How are you?">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>Goodbye.</strong><span>ደህና ሁን/ሁኚ።</span><small>Goodbye, see you soon.</small></div><button class="audio-btn" data-speak="Goodbye.">🔊 Listen</button></div></div><button class="btn btn-primary mark-lesson" data-lesson="greetings">✓ ትምህርቱን ጨርሻለሁ</button></section>
+<section class="lesson-card" data-level="beginner"><div class="lesson-card-top"><span class="level-pill">BEGINNER</span><span>⏱ 7 min</span></div><h2>2. Introducing Yourself — ራስን ማስተዋወቅ</h2><p>ስምህንና ከየት እንደመጣህ መናገር ተማር።</p><div class="vocab-list">
+<div class="vocab-row"><div><strong>My name is Eyob.</strong><span>ስሜ ኢዮብ ይባላል።</span></div><button class="audio-btn" data-speak="My name is Eyob.">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>What is your name?</strong><span>ስምህ ማን ይባላል?</span></div><button class="audio-btn" data-speak="What is your name?">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>I am from Ethiopia.</strong><span>ከኢትዮጵያ ነኝ።</span></div><button class="audio-btn" data-speak="I am from Ethiopia.">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>Nice to meet you.</strong><span>ስለተገናኘን ደስ ብሎኛል።</span></div><button class="audio-btn" data-speak="Nice to meet you.">🔊 Listen</button></div></div><button class="btn btn-primary mark-lesson" data-lesson="introductions">✓ ትምህርቱን ጨርሻለሁ</button></section>
+<section class="lesson-card" data-level="beginner"><div class="lesson-card-top"><span class="level-pill">BEGINNER</span><span>⏱ 8 min</span></div><h2>3. Polite Expressions — የጨዋነት አገላለጾች</h2><p>ምስጋና፣ ይቅርታ እና ጨዋ ጥያቄዎች።</p><div class="vocab-list">
+<div class="vocab-row"><div><strong>Thank you very much.</strong><span>በጣም አመሰግናለሁ።</span></div><button class="audio-btn" data-speak="Thank you very much.">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>You are welcome.</strong><span>ምንም አይደለም።</span></div><button class="audio-btn" data-speak="You are welcome.">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>Please.</strong><span>እባክህ/እባክሽ።</span></div><button class="audio-btn" data-speak="Please.">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>Excuse me.</strong><span>ይቅርታ።</span></div><button class="audio-btn" data-speak="Excuse me.">🔊 Listen</button></div></div><button class="btn btn-primary mark-lesson" data-lesson="polite">✓ ትምህርቱን ጨርሻለሁ</button></section>
+<section class="lesson-card" data-level="intermediate" id="intermediate"><div class="lesson-card-top"><span class="level-pill level-mid">INTERMEDIATE</span><span>⏱ 10 min</span></div><h2>4. Everyday English — የዕለት ተዕለት ውይይት</h2><p>በተለመዱ ሁኔታዎች ለመነጋገር የሚረዱ ሐረጎች።</p><div class="vocab-list">
+<div class="vocab-row"><div><strong>Could you help me?</strong><span>ልትረዳኝ ትችላለህ?</span></div><button class="audio-btn" data-speak="Could you help me?">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>How much does it cost?</strong><span>ስንት ዋጋ አለው?</span></div><button class="audio-btn" data-speak="How much does it cost?">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>I don't understand.</strong><span>አልገባኝም።</span></div><button class="audio-btn" data-speak="I don't understand.">🔊 Listen</button></div></div><button class="btn btn-primary mark-lesson" data-lesson="everyday">✓ ትምህርቱን ጨርሻለሁ</button></section>
+<section class="lesson-card" data-level="intermediate"><div class="lesson-card-top"><span class="level-pill level-mid">INTERMEDIATE</span><span>⏱ 10 min</span></div><h2>5. Grammar: Present Simple — የአሁን ቀላል ጊዜ</h2><p>ልማድንና በተደጋጋሚ የሚፈጸም ተግባርን ለመግለጽ ይጠቅማል።</p><div class="grammar-box"><p><b>I/You/We/They + verb</b> → I study English.</p><p><b>He/She/It + verb-s</b> → She studies English.</p><p class="amharic-note">ማስታወሻ፦ በHe/She/It ሲሆን ብዙ ጊዜ በግስ ላይ -s ወይም -es ይጨመራል።</p></div><button class="audio-btn" data-speak="I study English every day. She studies English every day.">🔊 ምሳሌዎችን አዳምጥ</button><button class="btn btn-primary mark-lesson" data-lesson="present-simple">✓ ትምህርቱን ጨርሻለሁ</button></section>
+<section class="lesson-card" data-level="advanced" id="advanced"><div class="lesson-card-top"><span class="level-pill level-adv">ADVANCED</span><span>⏱ 12 min</span></div><h2>6. Professional English — የሥራ እንግሊዝኛ</h2><p>በሥራ ቦታ በጨዋነት ለመናገር የሚረዱ አገላለጾች።</p><div class="vocab-list">
+<div class="vocab-row"><div><strong>I would appreciate your feedback.</strong><span>አስተያየትዎን ቢሰጡኝ ደስ ይለኛል።</span></div><button class="audio-btn" data-speak="I would appreciate your feedback.">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>Could we schedule a meeting?</strong><span>ስብሰባ ልናቀጥር እንችላለን?</span></div><button class="audio-btn" data-speak="Could we schedule a meeting?">🔊 Listen</button></div>
+<div class="vocab-row"><div><strong>Thank you for your consideration.</strong><span>ስለተመለከቱት አመሰግናለሁ።</span></div><button class="audio-btn" data-speak="Thank you for your consideration.">🔊 Listen</button></div></div><button class="btn btn-primary mark-lesson" data-lesson="professional">✓ ትምህርቱን ጨርሻለሁ</button></section>
+</div><p id="no-lessons" class="empty-state hidden">የፈለግከው ትምህርት አልተገኘም።</p><p class="small-note">የድምፅ አሰራር በአሳሹና በስልኩ የText-to-Speech ድጋፍ ላይ ይመረኮዛል።</p>
+</main><footer class="footer"><div class="wrap footer-inner"><strong>🌍 EyobLingua</strong><span>በየቀኑ ትንሽ ተማር።</span><a href="index.html">ዋና ገጽ</a></div></footer><script src="script.js"></script></body></html>

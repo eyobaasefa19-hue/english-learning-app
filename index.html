@@ -1,29 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="am">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>የእንግሊዝኛ መማሪያ - ዋና ገጽ</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#312e81"><meta name="color-scheme" content="light dark"><meta name="description" content="EyobLingua — በአማርኛ ድጋፍ እንግሊዝኛን በነፃ ይማሩ።">
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css">
+<title>EyobLingua — እንግሊዝኛ በነፃ</title>
 </head>
 <body>
-    <header>
-        <h1>እንኳን ወደ እንግሊዝኛ መማሪያ በደህና መጡ!</h1>
-    </header>
-    
-    <main>
-        <p>በስልክዎ በቀላሉ እንግሊዝኛ ይማሩ እና ራስዎን ይፈትኑ።</p>
-
-        <div class="menu-buttons">
-            <a href="lessons.html" class="btn">ትምህርቶችን ይመልከቱ</a>
-            <a href="quiz.html" class="btn btn-secondary">ፈተና/ኩዊዝ ጀምር</a>
-            <a href="profile.html" class="btn primary-btn" style="background-color: #6c5ce7; margin-top: 10px;">የእኔ መለያ (Profile)</a>
-
-        </div>
-    </main>
-
-    <footer>
-        <p>© 2026 የእንግሊዝኛ መማሪያ አፕ</p>
-    </footer>
-</body>
-</html>
+<header class="hero">
+  <nav class="nav wrap"><a class="brand" href="index.html">🌍 EyobLingua</a><button class="menu-toggle" id="menu-toggle" aria-label="የምናሌ ዝርዝር ክፈት" aria-expanded="false">☰</button>
+  <button class="theme-toggle" id="theme-toggle" type="button" aria-label="ጨለማ/ብርሃን ሁነታ" title="ጨለማ/ብርሃን ሁነታ">◐</button><div class="nav-links" id="nav-links"><a class="active" href="index.html">ዋና ገጽ</a><a href="lessons.html">ትምህርቶች</a><a href="quiz.html">ፈተና</a><a href="profile.html">የእኔ መለያ</a></div></nav>
+  <div class="wrap hero-content"><span class="eyebrow">LEARN ENGLISH • FOR FREE</span><h1>እንግሊዝኛን በቀላሉ፣<br><span>በየቀኑ ይማሩ።</span></h1><p>ከጀማሪ እስከ ከፍተኛ ደረጃ፤ በአማርኛ ማብራሪያ፣ በማዳመጥ እና በልምምድ።</p><div class="hero-actions"><a class="btn btn-light" href="lessons.html">ትምህርት ጀምር →</a><a class="btn btn-outline-light" href="quiz.html">እውቀትህን ፈትሽ</a></div></div>
+</header>
+<main class="wrap page-main">
+  <section class="stats-grid" aria-label="Learning progress">
+    <article class="stat-card"><span class="stat-icon">📚</span><div><strong id="lessons-completed">0</strong><span>የተጠናቀቁ ትምህርቶች</span></div></article>
+    <article class="stat-card"><span class="stat-icon">🎯</span><div><strong id="best-score">0%</strong><span>ከፍተኛ ውጤት</span></div></article>
+    <article class="stat-card"><span class="stat-icon">🔥</span><div><strong id="words-learned">0</strong><span>የተማርካቸው ቃላት</span></div></article>
+  </section>
+  <section class="section-head"><div><span class="eyebrow">YOUR LEARNING PATH</span><h2>የመማሪያ መንገድህ</h2><p>ደረጃ በደረጃ ተማር፣ ተለማመድ፣ እድገትህን ተከታተል።</p></div></section>
+  <section class="level-grid">
+    <a class="level-card beginner" href="lessons.html#beginner"><span>🌱</span><h3>Beginner</h3><p>ጀማሪ — መሠረታዊ ቃላት፣ ሰላምታ እና ቀላል ሰዋሰው።</p><b>ትምህርቶችን ተመልከት →</b></a>
+    <a class="level-card intermediate" href="lessons.html#intermediate"><span>🚀</span><h3>Intermediate</h3><p>መካከለኛ — የዕለት ተዕለት ውይይትና የአረፍተ ነገር ግንባታ።</p><b>ትምህርቶችን ተመልከት →</b></a>
+    <a class="level-card advanced" href="lessons.html#advanced"><span>🏆</span><h3>Advanced</h3><p>ከፍተኛ — ተፈጥሯዊ አገላለጽ፣ የሥራ እንግሊዝኛ እና ጽሑፍ።</p><b>ትምህርቶችን ተመልከት →</b></a>
+  </section>
+  <section class="feature-grid">
+    <article class="feature-card"><span>🔊</span><h3>ማዳመጥና አነጋገር</h3><p>በሚደገፍ አሳሽ የእንግሊዝኛ ቃላትን አዳምጥ።</p><a href="lessons.html">ወደ ትምህርቶች →</a></article>
+    <article class="feature-card"><span>🧠</span><h3>ፈተናዎች</h3><p>ባለብዙ ምርጫ ጥያቄዎችን በመመለስ ዕውቀትህን ፈትሽ።</p><a href="quiz.html">ፈተና ጀምር →</a></article>
+    <article class="feature-card"><span>📈</span><h3>እድገትህን ተከታተል</h3><p>ስምህን አስቀምጥ፣ ውጤትህንና የተማርካቸውን ቃላት ተመልከት።</p><a href="profile.html">የእኔ መለያ →</a></article>
+  </section>
+</main>
+<footer class="footer"><div class="wrap footer-inner"><strong>🌍 EyobLingua</strong><span>English for Everyone • በነፃ ለመማር</span><span>© 2026 EyobLingua</span></div></footer>
+<script src="script.js"></script><script>if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(()=>{});</script>
+</body></html>
