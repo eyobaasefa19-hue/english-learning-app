@@ -204,6 +204,13 @@
     {question:"'I am from Ethiopia' ማለት ምንድን ነው?", options:["ወደ ኢትዮጵያ እሄዳለሁ","ኢትዮጵያን እወዳለሁ","ከኢትዮጵያ ነኝ","ኢትዮጵያ ውስጥ እማራለሁ"], correct:2, explain:"I am from Ethiopia = ከኢትዮጵያ ነኝ።"},
     {question:"የትኛው ጨዋ ጥያቄ ነው?", options:["Give me that!","Could you help me, please?","You help me now.","I want it."], correct:1, explain:"Could you help me, please? ጨዋ የእርዳታ ጥያቄ ነው።"},
     {question:"'I don't understand' ማለት ምንድን ነው?", options:["አልገባኝም","አልሰማሁም","አውቃለሁ","እስማማለሁ"], correct:0, explain:"I don't understand = አልገባኝም።"}
+    ,
+    {question:"'How old are you?' ምን ማለት ነው?", options:["ስምህ ማን ነው?","ዕድሜህ ስንት ነው?","ከየት ነህ?","የት ትኖራለህ?"], correct:1, explain:"How old are you? = ዕድሜህ ስንት ነው?"},
+    {question:"'Mother' ማለት ምንድን ነው?", options:["እህት","አባት","እናት","ወንድም"], correct:2, explain:"Mother = እናት።"},
+    {question:"'I wake up at seven' ምን ማለት ነው?", options:["በሰባት ሰዓት እነሳለሁ","በሰባት እተኛለሁ","ቁርስ እበላለሁ","ወደ ቤት እሄዳለሁ"], correct:0, explain:"I wake up at seven = በሰባት ሰዓት እነሳለሁ።"},
+    {question:"'I would like water, please' የሚለው ምን ይገልጻል?", options:["ውሃ አልፈልግም","እባክዎ ውሃ እፈልጋለሁ","ውሃ የት አለ?","ውሃ አልጠጣም"], correct:1, explain:"I would like water, please = እባክዎ ውሃ እፈልጋለሁ።"},
+    {question:"'Turn left' ማለት ምንድን ነው?", options:["ወደ ቀኝ ታጠፍ","ቀጥታ ሂድ","ወደ ግራ ታጠፍ","ቆም"], correct:2, explain:"Turn left = ወደ ግራ ታጠፍ።"},
+    {question:"ትክክለኛውን አረፍተ ነገር ምረጥ።", options:["I is Ethiopian.","I am Ethiopian.","I are Ethiopian.","I be Ethiopian."], correct:1, explain:"ከI ጋር am እንጠቀማለን።"}
   ];
   let questionIndex = 0, score = 0, answered = false;
   function loadQuestion() {
@@ -306,8 +313,8 @@
     updateProfile();
   }
   function updateProfile() {
-    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 6`;
-    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${completed().length / 6 * 100}%`;
+    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 13`;
+    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 13 * 100, 100)}%`;
     if ($("profile-best")) $("profile-best").textContent = `${bestScore()}%`;
     if ($("profile-words")) $("profile-words").textContent = wordsLearned();
   }

@@ -1,4 +1,4 @@
-# EyobLingua — Modern Website v3
+# EyobLingua — A1 Course Update v5
 
 A mobile-first English-learning website with Amharic support, designed to be edited and tested from an Android phone.
 
@@ -42,3 +42,10 @@ You may also preview `index.html` locally, but some features (especially service
 - HTML, JavaScript, and CSS use versioned asset URLs to avoid stale browser caches.
 - Service worker uses a network-first strategy for app pages and core files, with an offline cache fallback.
 - Speech playback waits briefly for Android Chrome voices to become available. Speech synthesis still depends on the voices installed on the device/browser.
+
+
+## A1 course update (v5)
+- Beginner track now includes 10 introductory lessons with Amharic explanations and English example phrases.
+- Quiz includes additional A1 questions.
+- Profile progress denominator updated for the 13 lessons currently listed.
+- Cache version and asset URLs updated to v5.
