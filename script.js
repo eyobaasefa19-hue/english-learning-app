@@ -221,6 +221,18 @@
     {question:"They ___ playing football now.", options:["is","am","are","be"], correct:2, explain:"Present Continuous: They are + verb-ing።"},
     {question:"You ___ practise every day. (ምክር)", options:["should","shouldn't to","are","did"], correct:0, explain:"ምክር ለመስጠት should + base verb እንጠቀማለን።"},
     {question:"በጨዋነት ጥያቄ የትኛው ነው?", options:["Open it now!","Could you open the window, please?","You open window.","Window open."], correct:1, explain:"Could you ... please? ጨዋ የጥያቄ አገላለጽ ነው።"}
+
+    ,
+    {question:"Present Perfect የትኛው ትክክለኛ ነው?", options:["I have finished my work.","I has finished my work.","I finished have my work.","I have finish my work."], correct:0, explain:"Present Perfect = have/has + past participle።"},
+    {question:"They ___ watching TV when I arrived.", options:["was","were","is","be"], correct:1, explain:"They ጋር Past Continuous ውስጥ were + verb-ing እንጠቀማለን።"},
+    {question:"If it rains, we ___ at home.", options:["stayed","staying","will stay","stays"], correct:2, explain:"First Conditional: If + Present Simple, will + base verb።"},
+    {question:"'You must wear a seat belt' ምን ይገልጻል?", options:["ዕድል","ግዴታ","ያለፈ ጊዜ","ምክር ብቻ"], correct:1, explain:"Must ግዴታን ወይም ጠንካራ አስፈላጊነትን ይገልጻል።"},
+    {question:"Passive Voice የትኛው ነው?", options:["People speak English.","English is spoken here.","People are speak English.","English speaks people."], correct:1, explain:"Passive voice = be + past participle።"},
+    {question:"The woman ___ lives here is a doctor.", options:["which","where","who","when"], correct:2, explain:"Who ለሰው የሚያመለክት relative pronoun ነው።"},
+    {question:"Direct: He said, “I am tired.” Reported:", options:["He said he is tired.","He said he was tired.","He says I was tired.","He said I am tired."], correct:1, explain:"Reported speech ውስጥ በተለመደው backshift am → was ይሆናል።"},
+    {question:"'Although' በዚህ አጠቃቀም ምን ያሳያል?", options:["ምክንያት","ተቃርኖ","ጊዜ","ቦታ"], correct:1, explain:"Although ተቃራኒ ወይም የሚጋጭ ሀሳብ ያገናኛል።"},
+    {question:"I have ___ been to Kenya. (በሕይወቴ አንድም ጊዜ አልሄድኩም)", options:["ever","never","yet","already"], correct:1, explain:"Never = ፈጽሞ አልሆነም/አልተፈጸመም።"},
+    {question:"We were studying ___ the lights went out.", options:["because","when","although","therefore"], correct:1, explain:"When የሌላ ክስተት መከሰትን ለማሳየት ይጠቅማል።"}
   ];
   let questionIndex = 0, score = 0, answered = false;
   function loadQuestion() {
@@ -323,8 +335,8 @@
     updateProfile();
   }
   function updateProfile() {
-    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 21`;
-    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 21 * 100, 100)}%`;
+    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 29`;
+    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 29 * 100, 100)}%`;
     if ($("profile-best")) $("profile-best").textContent = `${bestScore()}%`;
     if ($("profile-words")) $("profile-words").textContent = wordsLearned();
   }

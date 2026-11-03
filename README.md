@@ -54,5 +54,13 @@ You may also preview `index.html` locally, but some features (especially service
 ## A2 course update (v6)
 - Added eight A2 / Elementary lessons: Past Simple, future plans, comparisons, countable and uncountable nouns, frequency adverbs, Present Continuous, advice, and polite requests/offers.
 - Added nine matching A2 quiz questions.
-- Progress total updated to 21 lesson cards (10 beginner, 2 intermediate foundation, 8 A2, 1 advanced preview).
+- Previous v6 progress total was 21 lesson cards; the current v7 total is 29.
 - Cache and asset versions updated to v6.
+
+
+## B1 course update (v7)
+- Added eight B1 / Intermediate lessons: Present Perfect, Past Continuous, First Conditional, Modal Verbs, Passive Voice, Relative Clauses, Reported Speech, and Linking Words.
+- Added ten matching B1 quiz questions.
+- Total lesson cards: 29 (10 A1/A1 starter + 8 A2 + 8 B1 + 3 existing preview/other cards as present in the project).
+- Quiz bank now contains 33 questions.
+- Updated asset and service-worker cache versions to v7.
