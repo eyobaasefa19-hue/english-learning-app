@@ -1,4 +1,4 @@
-# EyobLingua — A1 Course Update v5
+# EyobLingua — A2 Course Update v6
 
 A mobile-first English-learning website with Amharic support, designed to be edited and tested from an Android phone.
 
@@ -49,3 +49,10 @@ You may also preview `index.html` locally, but some features (especially service
 - Quiz includes additional A1 questions.
 - Profile progress denominator updated for the 13 lessons currently listed.
 - Cache version and asset URLs updated to v5.
+
+
+## A2 course update (v6)
+- Added eight A2 / Elementary lessons: Past Simple, future plans, comparisons, countable and uncountable nouns, frequency adverbs, Present Continuous, advice, and polite requests/offers.
+- Added nine matching A2 quiz questions.
+- Progress total updated to 21 lesson cards (10 beginner, 2 intermediate foundation, 8 A2, 1 advanced preview).
+- Cache and asset versions updated to v6.

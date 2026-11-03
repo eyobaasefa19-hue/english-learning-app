@@ -211,6 +211,16 @@
     {question:"'I would like water, please' የሚለው ምን ይገልጻል?", options:["ውሃ አልፈልግም","እባክዎ ውሃ እፈልጋለሁ","ውሃ የት አለ?","ውሃ አልጠጣም"], correct:1, explain:"I would like water, please = እባክዎ ውሃ እፈልጋለሁ።"},
     {question:"'Turn left' ማለት ምንድን ነው?", options:["ወደ ቀኝ ታጠፍ","ቀጥታ ሂድ","ወደ ግራ ታጠፍ","ቆም"], correct:2, explain:"Turn left = ወደ ግራ ታጠፍ።"},
     {question:"ትክክለኛውን አረፍተ ነገር ምረጥ።", options:["I is Ethiopian.","I am Ethiopian.","I are Ethiopian.","I be Ethiopian."], correct:1, explain:"ከI ጋር am እንጠቀማለን።"}
+    ,
+    {question:"Yesterday, I ___ my friend.", options:["visit","visited","visiting","visits"], correct:1, explain:"Past Simple ለመደበኛ ግሶች ብዙ ጊዜ -ed ይጨመራል።"},
+    {question:"'Go' የPast Simple ቅርጹ ምንድን ነው?", options:["goed","gone","went","going"], correct:2, explain:"Go → went የማይደበኛ ግስ ነው።"},
+    {question:"She ___ going to study tonight.", options:["am","are","is","be"], correct:2, explain:"ከShe ጋር is going to እንጠቀማለን።"},
+    {question:"'Bigger' የሚለው ምን ይገልጻል?", options:["ንጽጽር","ያለፈ ጊዜ","ብዙ ቁጥር","ትእዛዝ"], correct:0, explain:"Bigger የbig የcomparative ቅርጽ ነው።"},
+    {question:"የትኛው ከUncountable noun ጋር ይጠቀማል?", options:["many","much","few","several"], correct:1, explain:"Much water እንላለን፤ water በዚህ አጠቃቀም የማይቆጠር ስም ነው።"},
+    {question:"'I ___ study English.' (ሁልጊዜ)", options:["never","always","yesterday","now"], correct:1, explain:"Always = ሁልጊዜ።"},
+    {question:"They ___ playing football now.", options:["is","am","are","be"], correct:2, explain:"Present Continuous: They are + verb-ing።"},
+    {question:"You ___ practise every day. (ምክር)", options:["should","shouldn't to","are","did"], correct:0, explain:"ምክር ለመስጠት should + base verb እንጠቀማለን።"},
+    {question:"በጨዋነት ጥያቄ የትኛው ነው?", options:["Open it now!","Could you open the window, please?","You open window.","Window open."], correct:1, explain:"Could you ... please? ጨዋ የጥያቄ አገላለጽ ነው።"}
   ];
   let questionIndex = 0, score = 0, answered = false;
   function loadQuestion() {
@@ -313,8 +323,8 @@
     updateProfile();
   }
   function updateProfile() {
-    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 13`;
-    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 13 * 100, 100)}%`;
+    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 21`;
+    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 21 * 100, 100)}%`;
     if ($("profile-best")) $("profile-best").textContent = `${bestScore()}%`;
     if ($("profile-words")) $("profile-words").textContent = wordsLearned();
   }
