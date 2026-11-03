@@ -64,3 +64,10 @@ You may also preview `index.html` locally, but some features (especially service
 - Total lesson cards: 29 (10 A1/A1 starter + 8 A2 + 8 B1 + 3 existing preview/other cards as present in the project).
 - Quiz bank now contains 33 questions.
 - Updated asset and service-worker cache versions to v7.
+
+
+## B2 course update (v8)
+- Added eight B2 / Upper-Intermediate lessons: Third Conditional, Mixed Conditionals, Advanced Passive Structures, Cleft Sentences and Emphasis, Advanced Reported Speech, Advanced Linking Devices, Phrasal Verbs in Context, and Formal/Informal English.
+- Added ten B2 quiz questions.
+- Lesson cards total: 37. Quiz bank total: 43 questions.
+- Updated asset references and service-worker cache to v8.

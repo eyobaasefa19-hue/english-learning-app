@@ -233,6 +233,18 @@
     {question:"'Although' በዚህ አጠቃቀም ምን ያሳያል?", options:["ምክንያት","ተቃርኖ","ጊዜ","ቦታ"], correct:1, explain:"Although ተቃራኒ ወይም የሚጋጭ ሀሳብ ያገናኛል።"},
     {question:"I have ___ been to Kenya. (በሕይወቴ አንድም ጊዜ አልሄድኩም)", options:["ever","never","yet","already"], correct:1, explain:"Never = ፈጽሞ አልሆነም/አልተፈጸመም።"},
     {question:"We were studying ___ the lights went out.", options:["because","when","although","therefore"], correct:1, explain:"When የሌላ ክስተት መከሰትን ለማሳየት ይጠቅማል።"}
+
+    ,
+    {question:"Third Conditional ትክክለኛው ቅርጽ የትኛው ነው?", options:["If I study, I pass.","If I had studied, I would have passed.","If I studied, I will pass.","If I have studied, I passed."], correct:1, explain:"Third Conditional = If + past perfect, would have + past participle።"},
+    {question:"If I had learned to drive, I ___ a car now.", options:["will have","would have","would have had","had"], correct:1, explain:"Mixed Conditional ያለፈ ሁኔታን ከአሁኑ ውጤት ጋር ያገናኛል።"},
+    {question:"The results ___ tomorrow. (Future Passive)", options:["announce","will announce","will be announced","are announcing"], correct:2, explain:"Future Passive = will be + past participle።"},
+    {question:"___ I need is more practice.", options:["Who","What","Where","When"], correct:1, explain:"What I need is... ሀሳብን ለማጉላት የሚጠቅም cleft structure ነው።"},
+    {question:"The teacher advised us ___ regularly.", options:["revise","revising","to revise","revised"], correct:2, explain:"advise + object + to-infinitive: advised us to revise።"},
+    {question:"'Nevertheless' ምን ያሳያል?", options:["ተቃርኖ","ተጨማሪ መረጃ","ጊዜ","ቦታ"], correct:0, explain:"Nevertheless = እንደዚያ ቢሆንም፤ ተቃርኖን ያሳያል።"},
+    {question:"'Put off the meeting' ማለት ምንድን ነው?", options:["ስብሰባውን ማስጀመር","ስብሰባውን ማዘግየት","ስብሰባውን ማጠናቀቅ","ስብሰባውን መርሳት"], correct:1, explain:"Put off = ማዘግየት/ወደ ሌላ ጊዜ ማስተላለፍ።"},
+    {question:"ለመደበኛ ኢሜይል የተሻለው አገላለጽ የትኛው ነው?", options:["Send it now.","Hey, give me that.","Could you please send me the file?","Gimme the file."], correct:2, explain:"Could you please... ጨዋና መደበኛ የጥያቄ አገላለጽ ነው።"},
+    {question:"'Furthermore' በጽሑፍ ምን ይጠቅማል?", options:["ተጨማሪ ሀሳብ ለማቅረብ","ተቃርኖ ለማሳየት","ጊዜ ለመግለጽ","ሁኔታ ለማቅረብ"], correct:0, explain:"Furthermore = በተጨማሪ፤ ተጨማሪ ነጥብ ያቀርባል።"},
+    {question:"Which sentence is a correct modal passive?", options:["The form must sign.","The form must be signed.","The form must signed.","The form must been signed."], correct:1, explain:"Modal Passive = modal + be + past participle።"}
   ];
   let questionIndex = 0, score = 0, answered = false;
   function loadQuestion() {
@@ -335,8 +347,8 @@
     updateProfile();
   }
   function updateProfile() {
-    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 29`;
-    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 29 * 100, 100)}%`;
+    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 37`;
+    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 37 * 100, 100)}%`;
     if ($("profile-best")) $("profile-best").textContent = `${bestScore()}%`;
     if ($("profile-words")) $("profile-words").textContent = wordsLearned();
   }

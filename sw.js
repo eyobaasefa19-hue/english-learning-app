@@ -1,5 +1,5 @@
-const CACHE_NAME = "eyoblingua-b1-v7";
-const APP_SHELL = ["./","./index.html","./lessons.html","./quiz.html","./profile.html","./style.css?v=7","./script.js?v=7","./manifest.json"];
+const CACHE_NAME = "eyoblingua-b2-v8";
+const APP_SHELL = ["./","./index.html","./lessons.html","./quiz.html","./profile.html","./style.css?v=8","./script.js?v=8","./manifest.json"];
 self.addEventListener("install", event => event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())));
 self.addEventListener("activate", event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key)))).then(() => self.clients.claim())));
 self.addEventListener("fetch", event => {
