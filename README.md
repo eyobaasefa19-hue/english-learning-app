@@ -35,3 +35,10 @@ You may also preview `index.html` locally, but some features (especially service
 - `script.js` — app interactions
 - `manifest.json` — PWA metadata
 - `sw.js` — offline caching starter
+
+
+## v4 update notes
+- Cache version is bumped to `eyoblingua-v4` so previously cached JavaScript and styles are replaced.
+- HTML, JavaScript, and CSS use versioned asset URLs to avoid stale browser caches.
+- Service worker uses a network-first strategy for app pages and core files, with an offline cache fallback.
+- Speech playback waits briefly for Android Chrome voices to become available. Speech synthesis still depends on the voices installed on the device/browser.

@@ -30,18 +30,33 @@
       utterance.lang = "en-US";
       utterance.rate = 0.88;
       utterance.pitch = 1;
-      const voices = window.speechSynthesis.getVoices();
-      const englishVoice = voices.find(v => /^en(-|_)/i.test(v.lang) && /Google|English|US/i.test(v.name))
-        || voices.find(v => /^en(-|_)/i.test(v.lang));
-      if (englishVoice) utterance.voice = englishVoice;
-      utterance.onerror = () => {
-        if (button) button.textContent = "🔊 Try again";
+      const startSpeech = () => {
+        const voices = window.speechSynthesis.getVoices();
+        const englishVoice = voices.find(v => /^en(-|_)/i.test(v.lang) && /Google|English|US/i.test(v.name))
+          || voices.find(v => /^en(-|_)/i.test(v.lang));
+        if (englishVoice) utterance.voice = englishVoice;
+        utterance.onerror = () => {
+          if (button) button.textContent = "🔊 Try again";
+          toast("ድምፅ አልተገኘም። የስልክህን Text-to-Speech ቅንብር ፈትሽ።");
+        };
+        utterance.onend = () => {
+          if (button) button.textContent = "🔊 Listen";
+        };
+        window.speechSynthesis.speak(utterance);
+        if (button) button.textContent = "🔊 Playing…";
       };
-      utterance.onend = () => {
-        if (button) button.textContent = "🔊 Listen";
-      };
-      window.speechSynthesis.speak(utterance);
-      if (button) button.textContent = "🔊 Playing…";
+      // Android Chrome may load its speech voices asynchronously.
+      const availableVoices = window.speechSynthesis.getVoices();
+      if (availableVoices.length) {
+        startSpeech();
+      } else {
+        const voiceTimeout = setTimeout(startSpeech, 700);
+        window.speechSynthesis.addEventListener?.("voiceschanged", function onVoicesChanged() {
+          clearTimeout(voiceTimeout);
+          window.speechSynthesis.removeEventListener?.("voiceschanged", onVoicesChanged);
+          startSpeech();
+        }, { once: true });
+      }
     } catch (_) {
       alert("ድምፁ ሊጀምር አልቻለም። እባክህ Chrome ውስጥ ሞክር።");
     }
