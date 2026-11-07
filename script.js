@@ -244,7 +244,17 @@
     {question:"'Put off the meeting' ማለት ምንድን ነው?", options:["ስብሰባውን ማስጀመር","ስብሰባውን ማዘግየት","ስብሰባውን ማጠናቀቅ","ስብሰባውን መርሳት"], correct:1, explain:"Put off = ማዘግየት/ወደ ሌላ ጊዜ ማስተላለፍ።"},
     {question:"ለመደበኛ ኢሜይል የተሻለው አገላለጽ የትኛው ነው?", options:["Send it now.","Hey, give me that.","Could you please send me the file?","Gimme the file."], correct:2, explain:"Could you please... ጨዋና መደበኛ የጥያቄ አገላለጽ ነው።"},
     {question:"'Furthermore' በጽሑፍ ምን ይጠቅማል?", options:["ተጨማሪ ሀሳብ ለማቅረብ","ተቃርኖ ለማሳየት","ጊዜ ለመግለጽ","ሁኔታ ለማቅረብ"], correct:0, explain:"Furthermore = በተጨማሪ፤ ተጨማሪ ነጥብ ያቀርባል።"},
-    {question:"Which sentence is a correct modal passive?", options:["The form must sign.","The form must be signed.","The form must signed.","The form must been signed."], correct:1, explain:"Modal Passive = modal + be + past participle።"}
+    {question:"Which sentence is a correct modal passive?", options:["The form must sign.","The form must be signed.","The form must signed.","The form must been signed."], correct:1, explain:"Modal Passive = modal + be + past participle።"},
+    {question:"Which sentence uses inversion correctly?", options:["Never I have seen this.","Never have I seen this.","Never I seen have this.","Never did I have seen this."], correct:1, explain:"Negative adverbials such as Never trigger subject-auxiliary inversion."},
+    {question:"Choose the correct subjunctive form: It is vital that he ___ on time.", options:["is","be","was","being"], correct:1, explain:"After expressions of importance, formal subjunctive uses the base verb: that he be."},
+    {question:"'She must have forgotten' expresses...", options:["a strong deduction about the past","a future plan","a direct command","a present habit"], correct:0, explain:"Must have + past participle expresses a strong deduction about a past event."},
+    {question:"Which phrase is an example of hedging?", options:["This is certainly true.","It appears that the results have changed.","There is no doubt whatsoever.","I guarantee it."], correct:1, explain:"It appears that softens a claim and shows appropriate caution."},
+    {question:"Which noun comes from the verb 'analyse'?", options:["analysing","analytical","analysis","analystic"], correct:2, explain:"Analysis is the noun form of analyse."},
+    {question:"Which collocation is correct?", options:["do a conclusion","make a deadline","draw a conclusion","take an insight"], correct:2, explain:"Draw a conclusion is the natural English collocation."},
+    {question:"'By contrast' is used to...", options:["show a difference","give an example","show a result","introduce a time"], correct:0, explain:"By contrast introduces an opposing or different point."},
+    {question:"Choose the reduced relative clause: The people ___ here are friendly.", options:["who live","living","which living","they live"], correct:1, explain:"Living here reduces who live here."},
+    {question:"Which sentence is correctly inverted?", options:["Not only she sings, but she dances.","Not only does she sing, but she also dances.","Not only sings she, but dances she.","Not only she does sing."], correct:1, explain:"Not only at the beginning requires auxiliary do-support before the subject."},
+    {question:"'I should have called earlier' suggests...", options:["I called too early","I regret not calling earlier","I will call tomorrow","I must call now"], correct:1, explain:"Should have often expresses a past action that was advisable but did not happen."}
   ];
   let questionIndex = 0, score = 0, answered = false;
   function loadQuestion() {
@@ -347,8 +357,8 @@
     updateProfile();
   }
   function updateProfile() {
-    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 37`;
-    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 37 * 100, 100)}%`;
+    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 45`;
+    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 45 * 100, 100)}%`;
     if ($("profile-best")) $("profile-best").textContent = `${bestScore()}%`;
     if ($("profile-words")) $("profile-words").textContent = wordsLearned();
   }

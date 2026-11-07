@@ -71,3 +71,11 @@ You may also preview `index.html` locally, but some features (especially service
 - Added ten B2 quiz questions.
 - Lesson cards total: 37. Quiz bank total: 43 questions.
 - Updated asset references and service-worker cache to v8.
+
+
+## C1 Advanced English — v9
+- Added 8 C1 lessons: inversion, subjunctive, modal perfects, hedging, nominalisation, collocations, discourse markers, and reduced relative clauses.
+- Added 10 C1 quiz questions.
+- Total lesson cards in this release: 45.
+- Total quiz questions in this release: 53.
+- Updated asset versions and offline cache to v9.
