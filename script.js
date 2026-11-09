@@ -15,8 +15,17 @@
     try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {}
   };
   const completed = () => readJSON(KEY.completed, []);
-  const bestScore = () => Number(localStorage.getItem(KEY.best) || 0);
-  const wordsLearned = () => Number(localStorage.getItem(KEY.words) || 0);
+  const readNumber = (key, fallback = 0) => {
+    try { const value = Number(localStorage.getItem(key)); return Number.isFinite(value) ? value : fallback; }
+    catch (_) { return fallback; }
+  };
+  const readText = (key, fallback = "") => {
+    try { return localStorage.getItem(key) || fallback; } catch (_) { return fallback; }
+  };
+  const writeText = (key, value) => { try { localStorage.setItem(key, String(value)); } catch (_) {} };
+  const removeStored = (key) => { try { localStorage.removeItem(key); } catch (_) {} };
+  const bestScore = () => readNumber(KEY.best, 0);
+  const wordsLearned = () => readNumber(KEY.words, 0);
 
   // Speech synthesis: supported in most browsers, but not guaranteed inside every APK/WebView.
   function speakText(text, button) {
@@ -27,10 +36,12 @@
     try {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "en-US";
-      utterance.rate = 0.88;
-      utterance.pitch = 1;
-      const startSpeech = () => {
+      let started = false;
+      let voiceTimer = null;
+      const begin = () => {
+        if (started) return;
+        started = true;
+        if (voiceTimer) clearTimeout(voiceTimer);
         const voices = window.speechSynthesis.getVoices();
         const englishVoice = voices.find(v => /^en(-|_)/i.test(v.lang) && /Google|English|US/i.test(v.name))
           || voices.find(v => /^en(-|_)/i.test(v.lang));
@@ -39,23 +50,23 @@
           if (button) button.textContent = "🔊 Try again";
           toast("ድምፅ አልተገኘም። የስልክህን Text-to-Speech ቅንብር ፈትሽ።");
         };
-        utterance.onend = () => {
-          if (button) button.textContent = "🔊 Listen";
-        };
-        window.speechSynthesis.speak(utterance);
-        if (button) button.textContent = "🔊 Playing…";
+        utterance.onend = () => { if (button) button.textContent = "🔊 Listen"; };
+        try { window.speechSynthesis.speak(utterance); if (button) button.textContent = "🔊 Playing…"; }
+        catch (_) { if (button) button.textContent = "🔊 Try again"; toast("ድምፅ ማስጀመር አልተቻለም። Chrome ውስጥ ሞክር።"); }
       };
-      // Android Chrome may load its speech voices asynchronously.
-      const availableVoices = window.speechSynthesis.getVoices();
-      if (availableVoices.length) {
-        startSpeech();
-      } else {
-        const voiceTimeout = setTimeout(startSpeech, 700);
-        window.speechSynthesis.addEventListener?.("voiceschanged", function onVoicesChanged() {
-          clearTimeout(voiceTimeout);
+      utterance.lang = "en-US";
+      utterance.rate = 0.88;
+      utterance.pitch = 1;
+      // Android Chrome can populate voices asynchronously. Start only once.
+      if (window.speechSynthesis.getVoices().length) begin();
+      else {
+        voiceTimer = setTimeout(begin, 1200);
+        const onVoicesChanged = () => {
+          if (voiceTimer) clearTimeout(voiceTimer);
           window.speechSynthesis.removeEventListener?.("voiceschanged", onVoicesChanged);
-          startSpeech();
-        }, { once: true });
+          begin();
+        };
+        window.speechSynthesis.addEventListener?.("voiceschanged", onVoicesChanged);
       }
     } catch (_) {
       alert("ድምፁ ሊጀምር አልቻለም። እባክህ Chrome ውስጥ ሞክር።");
@@ -68,7 +79,7 @@
 
   // Modern UI enhancements: saved theme, lightweight notifications, saved vocabulary and streak.
   const THEME_KEY = "eyoblingua_theme_v3";
-  const savedTheme = localStorage.getItem(THEME_KEY);
+  const savedTheme = readText(THEME_KEY, "");
   if (savedTheme === "dark" || savedTheme === "light") document.documentElement.dataset.theme = savedTheme;
   const themeButton = $("theme-toggle");
   function syncThemeButton() {
@@ -141,7 +152,8 @@
 
   // Daily activity marker is local to this browser and does not claim account-wide syncing.
   const ACTIVITY_KEY = "eyoblingua_activity_days_v3";
-  const todayKey = new Date().toISOString().slice(0, 10);
+  const localNow = new Date();
+  const todayKey = `${localNow.getFullYear()}-${String(localNow.getMonth()+1).padStart(2,"0")}-${String(localNow.getDate()).padStart(2,"0")}`;
   const activityDays = readJSON(ACTIVITY_KEY, []);
   if (!activityDays.includes(todayKey)) {
     activityDays.push(todayKey);
@@ -308,7 +320,11 @@
     $("final-score").textContent = `${quizData.length} ጥያቄዎች ውስጥ ${score} ትክክለኛ መልስ — ${percent}%`;
     $("result-message").textContent = percent >= 80 ? "እጅግ ጥሩ! እውቀትህ እየጠነከረ ነው።" : percent >= 50 ? "ጥሩ ሙከራ! ትምህርቶቹን እንደገና ተመልከት።" : "ተስፋ አትቁረጥ፤ ትምህርቶቹን አንብብና እንደገና ሞክር።";
     const previous = bestScore();
-    if (percent > previous) localStorage.setItem(KEY.best, String(percent));
+    if (percent > previous) writeText(KEY.best, percent);
+    const historyKey = "eyoblingua_quiz_history_v1";
+    const history = readJSON(historyKey, []);
+    history.unshift({ score, total: quizData.length, percent, date: new Date().toISOString() });
+    writeJSON(historyKey, history.slice(0, 10));
     $("best-score-display").textContent = `ከፍተኛ ውጤት: ${Math.max(percent, previous)}%`;
     refreshStats();
   }
@@ -328,7 +344,7 @@
   // Profile
   const profileName = $("profile-name"), nameInput = $("name-input");
   if (profileName) {
-    const savedName = localStorage.getItem(KEY.name) || "ተማሪ";
+    const savedName = readText(KEY.name, "ተማሪ");
     profileName.textContent = savedName;
     if (nameInput) nameInput.value = savedName === "ተማሪ" ? "" : savedName;
   }
@@ -336,13 +352,13 @@
     event.preventDefault();
     const value = nameInput.value.trim();
     if (!value) { $("profile-message").textContent = "እባክህ ስምህን አስገባ።"; return; }
-    localStorage.setItem(KEY.name, value);
+    writeText(KEY.name, value);
     profileName.textContent = value;
     $("profile-message").textContent = "ስምህ በዚህ መሣሪያ ተቀምጧል።";
   });
   $("reset-progress")?.addEventListener("click", () => {
     if (!confirm("የተቀመጠውን እድገት በዚህ አሳሽ ውስጥ ማጥፋት ትፈልጋለህ?")) return;
-    [KEY.best, KEY.completed, KEY.words, SAVED_WORDS_KEY, ACTIVITY_KEY].forEach(k => localStorage.removeItem(k));
+    [KEY.best, KEY.completed, KEY.words, SAVED_WORDS_KEY, ACTIVITY_KEY, "eyoblingua_quiz_history_v1"].forEach(removeStored);
     refreshStats();
     if ($("profile-lessons")) updateProfile();
     updateLessonButtons();

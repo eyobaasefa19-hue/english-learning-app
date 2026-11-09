@@ -79,3 +79,16 @@ You may also preview `index.html` locally, but some features (especially service
 - Total lesson cards in this release: 45.
 - Total quiz questions in this release: 53.
 - Updated asset versions and offline cache to v9.
+
+
+## Premium UI / PWA refresh — v10
+- Added a responsive premium design layer, improved mobile spacing, accessible focus states, and refined dark mode.
+- Added a home dashboard highlight panel and original 192px / 512px PWA icons.
+- Updated manifest metadata and added an offline fallback page.
+- Service worker now caches shell assets independently, uses network-first navigation, and falls back to the offline page.
+- Improved speech synthesis voice loading and guarded duplicate starts; actual voice availability remains device/browser dependent.
+- Added local quiz result history (latest 10 attempts) and safer storage helpers.
+- Preserved the existing lesson library and quiz bank.
+
+### Important product limitations
+This remains a static frontend/PWA. Learner name, completed lessons, saved words, and quiz history are stored locally on the current browser/device. There is no server-side account, database, admin CMS, or cross-device sync yet. Installability and offline behavior require HTTPS and a successful first online visit/cache installation. Test audio in the target Android browser; some WebView wrappers do not expose speech synthesis.
