@@ -103,3 +103,11 @@ This remains a static frontend/PWA. Learner name, completed lessons, saved words
 
 ## Curriculum scope
 This is a broad practical learning curriculum, not an exhaustive dictionary of every English word. Further releases should add CEFR-mapped units, listening recordings, speaking tasks, graded readers, writing feedback, irregular verb tables, pronunciation practice and spaced-repetition review.
+
+
+## v12 — Vocabulary and Verb Learning Tools
+- Added a searchable English–Amharic vocabulary dictionary with example sentences, part-of-speech filters, browser speech playback, and locally saved words.
+- Added an Irregular Verbs reference with base form, past simple, past participle, Amharic meaning, search, and pronunciation playback.
+- Added direct links to both tools in the site navigation and home page.
+- Updated the PWA cache version and app shell to include both new pages and their scripts.
+- Dictionary saved words and learning progress are stored locally on the current browser/device; they do not sync across devices.
