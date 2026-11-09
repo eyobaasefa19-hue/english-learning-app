@@ -92,3 +92,14 @@ You may also preview `index.html` locally, but some features (especially service
 
 ### Important product limitations
 This remains a static frontend/PWA. Learner name, completed lessons, saved words, and quiz history are stored locally on the current browser/device. There is no server-side account, database, admin CMS, or cross-device sync yet. Installability and offline behavior require HTTPS and a successful first online visit/cache installation. Test audio in the target Android browser; some WebView wrappers do not expose speech synthesis.
+
+
+## Comprehensive Curriculum Expansion — v11
+- Expanded the lesson library from 45 to 82 lesson cards.
+- Added 37 structured bilingual lessons covering everyday vocabulary, family, food, time, question words, places, daily verbs, pronouns, articles, prepositions, countable/uncountable nouns, adverbs, modal verbs, phrasal verbs, collocations, word families, synonyms/antonyms, idioms, travel, health, tense contrast, conditionals, passive voice, reported speech, academic and workplace English, discourse markers, hedging, technology, environment, pronunciation, writing, listening/speaking strategies, inversion and C1–C2 precision vocabulary.
+- Added 20 quiz questions; the quiz bank now contains 73 questions.
+- Updated profile progress denominator and offline cache to v11.
+- Each added vocabulary item includes an Amharic meaning and an English example; audio and save-word buttons are supported by the existing app logic.
+
+## Curriculum scope
+This is a broad practical learning curriculum, not an exhaustive dictionary of every English word. Further releases should add CEFR-mapped units, listening recordings, speaking tasks, graded readers, writing feedback, irregular verb tables, pronunciation practice and spaced-repetition review.

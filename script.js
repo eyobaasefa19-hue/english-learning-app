@@ -266,7 +266,27 @@
     {question:"'By contrast' is used to...", options:["show a difference","give an example","show a result","introduce a time"], correct:0, explain:"By contrast introduces an opposing or different point."},
     {question:"Choose the reduced relative clause: The people ___ here are friendly.", options:["who live","living","which living","they live"], correct:1, explain:"Living here reduces who live here."},
     {question:"Which sentence is correctly inverted?", options:["Not only she sings, but she dances.","Not only does she sing, but she also dances.","Not only sings she, but dances she.","Not only she does sing."], correct:1, explain:"Not only at the beginning requires auxiliary do-support before the subject."},
-    {question:"'I should have called earlier' suggests...", options:["I called too early","I regret not calling earlier","I will call tomorrow","I must call now"], correct:1, explain:"Should have often expresses a past action that was advisable but did not happen."}
+    {question:"'I should have called earlier' suggests...", options:["I called too early","I regret not calling earlier","I will call tomorrow","I must call now"], correct:1, explain:"Should have often expresses a past action that was advisable but did not happen."},
+    {question:"Choose the correct article: She is ___ honest person.", options:["a","an","the","no article"], correct:1, explain:"Honest begins with a vowel sound, so use 'an'."},
+    {question:"We have lived here ___ 2021.", options:["for","since","during","from"], correct:1, explain:"Use since with the starting point of a period."},
+    {question:"How ___ information do you need?", options:["many","much","few","several"], correct:1, explain:"Information is uncountable, so use much."},
+    {question:"Which phrasal verb means 'postpone'?", options:["put off","look after","find out","carry on"], correct:0, explain:"Put off means to postpone something."},
+    {question:"Choose the natural collocation.", options:["do a decision","make a decision","create a decision","take a decisioning"], correct:1, explain:"Make a decision is the standard collocation."},
+    {question:"'The test was a piece of cake' means the test was…", options:["very difficult","very easy","very long","very expensive"], correct:1, explain:"A piece of cake is an idiom meaning very easy."},
+    {question:"If water reaches 100°C, it ___.", options:["boil","boils","will boiling","boiled"], correct:1, explain:"Zero conditional uses present simple in both clauses."},
+    {question:"The new bridge ___ in 2022.", options:["built","was built","is building","has build"], correct:1, explain:"Past simple passive is was/were + past participle."},
+    {question:"She said, 'I am busy.' → She said that she ___ busy.", options:["is","was","has","will"], correct:1, explain:"In reported speech, present simple commonly shifts to past simple."},
+    {question:"Which word is an adverb?", options:["careful","carefully","care","careless"], correct:1, explain:"Carefully is an adverb describing how an action is done."},
+    {question:"Choose the correct sentence.", options:["He can speaks English.","He can speak English.","He cans speak English.","He can to speak English."], correct:1, explain:"A modal verb is followed by the base form of the main verb."},
+    {question:"'Look into a problem' means…", options:["ignore it","investigate it","look at it briefly","solve it immediately"], correct:1, explain:"Look into means investigate."},
+    {question:"Which linker shows contrast?", options:["moreover","therefore","nevertheless","for instance"], correct:2, explain:"Nevertheless introduces a contrasting idea."},
+    {question:"Choose the correct comparative form.", options:["more better","better","gooder","best than"], correct:1, explain:"The comparative form of good is better."},
+    {question:"Which sentence uses inversion correctly?", options:["Never I have seen this.","Never have I seen this.","Never seen I have this.","Never I seen have this."], correct:1, explain:"Negative adverbials at the beginning trigger auxiliary-subject inversion."},
+    {question:"What does 'ambiguous' mean?", options:["very clear","having more than one possible meaning","extremely cheap","easy to prove"], correct:1, explain:"Ambiguous means open to more than one interpretation."},
+    {question:"Choose the correct preposition: The meeting is ___ Monday.", options:["at","in","on","by"], correct:2, explain:"Use on with days of the week."},
+    {question:"Which is the most polite request?", options:["Open the door.","You open the door.","Could you open the door, please?","Open it now."], correct:2, explain:"Could you… please? is a polite request form."},
+    {question:"'Run out of time' means…", options:["have extra time","have no time left","run quickly","save time"], correct:1, explain:"Run out of means use all of something; here, no time remains."},
+    {question:"Which word family is correct?", options:["decide — decision","decide — decisement","decide — decisful","decide — decidingment"], correct:0, explain:"Decision is the noun form of decide."}
   ];
   let questionIndex = 0, score = 0, answered = false;
   function loadQuestion() {
@@ -373,8 +393,8 @@
     updateProfile();
   }
   function updateProfile() {
-    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 45`;
-    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 45 * 100, 100)}%`;
+    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 82`;
+    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 82 * 100, 100)}%`;
     if ($("profile-best")) $("profile-best").textContent = `${bestScore()}%`;
     if ($("profile-words")) $("profile-words").textContent = wordsLearned();
   }
