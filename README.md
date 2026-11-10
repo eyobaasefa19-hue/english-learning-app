@@ -111,3 +111,12 @@ This is a broad practical learning curriculum, not an exhaustive dictionary of e
 - Added direct links to both tools in the site navigation and home page.
 - Updated the PWA cache version and app shell to include both new pages and their scripts.
 - Dictionary saved words and learning progress are stored locally on the current browser/device; they do not sync across devices.
+
+
+## v13 — Daily Practice Center
+- Added a rotating Word of the Day with English audio playback.
+- Added a lightweight spaced-repetition review queue for vocabulary saved in the dictionary.
+- Review intervals progress through 1, 3, 7, 14 and 30 days when marked as remembered; "Again" schedules the item for another review today.
+- Added 20 common idioms, 20 phrasal verbs, and 20 synonym/antonym pairs with Amharic support and examples.
+- Added the Practice Center to navigation and the home page, and included its page and script in the service-worker app shell.
+- Review scheduling and saved vocabulary remain local to the current browser/device.
