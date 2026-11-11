@@ -138,3 +138,10 @@ This is a broad practical learning curriculum, not an exhaustive dictionary of e
 - Each module includes Amharic guidance, English examples, browser text-to-speech, and a self-check question with feedback.
 - Added search, level filtering, local completion tracking, home-page entry and navigation links.
 - Updated the service-worker cache to v15. Grammar completion data is local to the current browser/device and is not cloud-synced.
+
+
+## v16 — Grammar Expansion & Challenge
+- Expanded Grammar Academy from 20 to 33 modules with conjunctions, there is/are, quantifiers, comparisons, gerunds/infinitives, used to forms, wish/if only, causatives, participle clauses, ellipsis/substitution, punctuation, sentence word order, phrasal verbs and collocations.
+- Added a randomized 10-question mixed grammar challenge, score summary, and locally saved latest result.
+- Updated asset versions and service-worker cache to v16.
+- Grammar completion and quiz results remain local to the browser/device; no account sync is included.
