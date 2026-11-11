@@ -205,3 +205,24 @@ body{background:var(--bg);color:var(--ink);letter-spacing:-.012em}
 /* v16 Grammar expansion and challenge */
 .grammar-next-step{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;border-radius:20px;background:linear-gradient(120deg,#eef2ff,#f5f3ff);border:1px solid #dfe3ff}.grammar-next-step h2{margin:5px 0;font-size:1.35rem}.grammar-next-step p{margin:0;color:#59627a}.grammar-quiz-panel{padding:24px;background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);scroll-margin-top:20px}.grammar-quiz-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.grammar-quiz-head h2{margin:4px 0}.grammar-quiz-head p{color:var(--muted);margin:0}.gquiz-question{padding:18px;margin:18px 0;border:1px solid var(--border);border-radius:16px}.gquiz-question h3{margin:0 0 12px}.gquiz-question label{display:block;padding:10px;border-radius:10px;color:var(--muted)}.gquiz-question label:has(input:checked){background:color-mix(in srgb,var(--primary) 10%,var(--card));color:var(--ink)}.gquiz-question input{accent-color:var(--primary);margin-right:9px}.grammar-quiz-actions{display:flex;justify-content:flex-end}.gquiz-result-card{text-align:center;padding:28px}.gquiz-result-card strong{font-size:2.6rem;color:var(--primary)}.gquiz-result-card h3{font-size:1.4rem}.grammar-quiz-panel[hidden]{display:none}
 @media(max-width:600px){.grammar-next-step{align-items:stretch;flex-direction:column;padding:18px}.grammar-next-step .btn{width:100%;justify-content:center}.grammar-quiz-panel{padding:16px}}
+
+
+/* v17 Vocabulary Academy */
+.vocab-filter-selects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:15px}
+.vocab-filter-selects label{font-size:.85rem;color:var(--muted);font-weight:750}
+.vocab-filter-selects select{display:block;width:100%;margin-top:6px;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--bg);color:var(--ink)}
+.vocab-meta{font-size:.78rem;font-weight:800;color:var(--muted);margin:0 0 8px}
+.vocab-extra{display:grid;gap:5px;padding:10px 12px;border-radius:12px;background:var(--bg);font-size:.82rem;color:var(--muted)}
+.vocab-card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.learn-word{border:1px solid var(--border);background:var(--bg);color:var(--ink);border-radius:10px;padding:9px 11px;font-weight:750}
+.learn-word.is-learned{background:#dcfce7;color:#166534;border-color:#86efac}
+.word-day-panel,.vocab-challenge-panel{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px;margin:0 0 18px;border:1px solid var(--border);border-radius:22px;background:var(--card);box-shadow:var(--shadow)}
+.word-day-panel h2{font-size:1.7rem;margin:5px 0}.word-day-panel p{margin:5px 0}
+.vocab-challenge-panel{display:grid;grid-template-columns:1fr auto;margin-top:24px}
+.vocab-challenge-panel h2{margin:5px 0}.vocab-challenge-panel p{color:var(--muted);margin:0}
+.vocab-quiz-area{grid-column:1/-1;border-top:1px solid var(--border);padding-top:15px}
+.vocab-quiz-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.quiz-choice{padding:13px;border:1px solid var(--border);border-radius:12px;background:var(--bg);color:var(--ink);text-align:left}
+.quiz-choice.correct{border-color:#16a34a;background:#dcfce7;color:#166534}
+.quiz-choice.incorrect{border-color:#dc2626;background:#fee2e2;color:#991b1b}
+@media(max-width:650px){.vocab-filter-selects{grid-template-columns:1fr}.word-day-panel{align-items:flex-start}.vocab-challenge-panel{grid-template-columns:1fr}.vocab-quiz-options{grid-template-columns:1fr}.vocab-challenge-panel .btn{width:100%}}

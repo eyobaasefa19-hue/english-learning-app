@@ -145,3 +145,14 @@ This is a broad practical learning curriculum, not an exhaustive dictionary of e
 - Added a randomized 10-question mixed grammar challenge, score summary, and locally saved latest result.
 - Updated asset versions and service-worker cache to v16.
 - Grammar completion and quiz results remain local to the browser/device; no account sync is included.
+
+
+## Vocabulary Academy Expansion — v17
+- Expanded the vocabulary dictionary to 90 bilingual entries spanning A1–C1.
+- Added level and topic filters, search across words/meanings/examples, and part-of-speech filters.
+- Added synonym/antonym fields where useful, example sentences, daily word, pronunciation through device speech synthesis, and a four-choice meaning challenge.
+- Added locally saved and learned-word lists. These are stored in the current browser/device only.
+- Updated shared asset versions and service-worker cache to v17.
+
+### Vocabulary feature notes
+The 90 entries are a curated starter collection, not a complete dictionary. Speech depends on English voices available in the browser/device. Saved and learned states are local to the current browser and are not synced across devices. Offline use requires a successful first visit over HTTPS and service-worker caching.
