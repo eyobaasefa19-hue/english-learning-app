@@ -120,3 +120,13 @@ This is a broad practical learning curriculum, not an exhaustive dictionary of e
 - Added 20 common idioms, 20 phrasal verbs, and 20 synonym/antonym pairs with Amharic support and examples.
 - Added the Practice Center to navigation and the home page, and included its page and script in the service-worker app shell.
 - Review scheduling and saved vocabulary remain local to the current browser/device.
+
+
+## v14 — Four Skills Academy
+- Added a dedicated Reading, Listening, Speaking and Writing practice page.
+- Reading: three levels with short passages and comprehension questions.
+- Listening: three levels with speech playback, optional transcript, and comprehension checks. Audio depends on the browser/device English TTS voice.
+- Speaking: guided prompts, model answers, playback, and a self-assessment checklist. This release does not record microphone audio.
+- Writing: level-based prompts, live word count, local draft saving, and a simple self-review checklist. It does not provide automatic grammar correction.
+- Added navigation links and an offline app-shell entry for the new page.
+- Writing drafts and practice state are stored locally in the current browser/device; no cloud account or sync is included.

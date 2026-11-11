@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="am">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#24306b"><meta name="description" content="Practice English reading, listening, speaking and writing with Amharic support.">
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css?v=14">
+<title>Four Skills Academy — EyobLingua</title>
+</head>
+<body>
+<header class="subhero"><nav class="nav wrap">
+<a class="brand" href="index.html">🌍 EyobLingua</a>
+<button class="menu-toggle" id="menu-toggle" aria-label="የምናሌ ዝርዝር ክፈት" aria-expanded="false">☰</button>
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="ጨለማ/ብርሃን ሁነታ">◐</button>
+<div class="nav-links" id="nav-links"><a href="index.html">ዋና ገጽ</a><a href="lessons.html">ትምህርቶች</a><a href="vocabulary.html">Vocabulary</a><a href="verbs.html">Irregular Verbs</a><a href="practice.html">ዕለታዊ ልምምድ</a><a class="active" href="skills.html">Four Skills</a><a href="quiz.html">ፈተና</a><a href="profile.html">የእኔ መለያ</a></div>
+</nav><div class="wrap subhero-content"><span class="eyebrow">READ • LISTEN • SPEAK • WRITE</span><h1>Four Skills Academy</h1><p>እንግሊዝኛን በአራቱም ዋና ክህሎቶች በደረጃ ተለማመድ። አንብብ፣ አዳምጥ፣ ተናገር እና ጻፍ።</p></div></header>
+<main class="wrap page-main skills-page">
+<section class="skills-overview">
+<div class="skill-tile"><span>📖</span><div><b>Reading</b><small>ንባብና ግንዛቤ</small></div><a href="#reading">ጀምር →</a></div>
+<div class="skill-tile"><span>🎧</span><div><b>Listening</b><small>ማዳመጥና መረዳት</small></div><a href="#listening">ጀምር →</a></div>
+<div class="skill-tile"><span>🎙️</span><div><b>Speaking</b><small>ንግግርና አጠራር</small></div><a href="#speaking">ጀምር →</a></div>
+<div class="skill-tile"><span>✍️</span><div><b>Writing</b><small>ጽሑፍና ሰዋሰው</small></div><a href="#writing">ጀምር →</a></div>
+</section>
+<section class="skills-section" id="reading"><div class="skills-heading"><span class="eyebrow">01 • READING</span><h2>የንባብ ልምምድ</h2><p>አንቀጹን አንብብ፤ ከዚያ የግንዛቤ ጥያቄዎቹን መልስ።</p></div>
+<div class="skill-toolbar"><label for="reading-level">ደረጃ ምረጥ</label><select id="reading-level"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></div>
+<article class="skill-content-card"><span class="skill-level" id="reading-badge">BEGINNER</span><h3 id="reading-title"></h3><p id="reading-text" class="reading-text"></p><div id="reading-questions" class="skill-questions"></div><div id="reading-feedback" class="skill-feedback" aria-live="polite"></div></article>
+</section>
+<section class="skills-section" id="listening"><div class="skills-heading"><span class="eyebrow">02 • LISTENING</span><h2>የማዳመጥ ልምምድ</h2><p>የድምፅ ንባቡን አዳምጥ፤ የተረዳኸውን ለመፈተሽ ጥያቄዎቹን መልስ።</p></div>
+<div class="skill-content-card"><div class="skill-toolbar"><label for="listening-level">ደረጃ</label><select id="listening-level"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></div><span class="skill-level" id="listening-badge">BEGINNER</span><h3 id="listening-title"></h3><p class="muted-copy">🔊 ድምፁ በስልክህ/Browser የEnglish Text-to-Speech ድጋፍ ላይ ይመረኮዛል።</p><div class="skill-actions"><button class="btn btn-primary" id="play-listening">▶ አዳምጥ</button><button class="btn btn-secondary" id="show-transcript">Transcript አሳይ</button></div><p id="listening-transcript" class="reading-text transcript" hidden></p><div id="listening-questions" class="skill-questions"></div><div id="listening-feedback" class="skill-feedback" aria-live="polite"></div></div>
+</section>
+<section class="skills-section" id="speaking"><div class="skills-heading"><span class="eyebrow">03 • SPEAKING</span><h2>የንግግር ልምምድ</h2><p>ጥያቄውን አንብብ፣ ምሳሌውን አዳምጥ፣ ከዚያ በድምፅ መልስህን ተለማመድ።</p></div>
+<div class="skill-content-card"><div class="skill-toolbar"><label for="speaking-level">ደረጃ</label><select id="speaking-level"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></div><span class="skill-level" id="speaking-badge">BEGINNER</span><h3 id="speaking-prompt"></h3><p id="speaking-hint" class="muted-copy"></p><blockquote id="speaking-model" class="speaking-model"></blockquote><div class="skill-actions"><button class="btn btn-primary" id="play-model">🔊 ምሳሌውን አዳምጥ</button><button class="btn btn-secondary" id="next-speaking">ሌላ ጥያቄ</button></div><p class="speaking-note">አሁን ራስህን በድምፅ መዝግብ ወይም በቀጥታ ተናገር። ይህ ስሪት ድምፅህን አይቀዳም፤ በራስህ የምትገመግምበት ልምምድ ነው።</p><div class="self-check"><label><input type="checkbox"> ሙሉ ዓረፍተ ነገር ተናገርኩ።</label><label><input type="checkbox"> ቃላቱን በግልጽ አወጣሁ።</label><label><input type="checkbox"> በተፈጥሮ ፍጥነት ተናገርኩ።</label></div></div>
+</section>
+<section class="skills-section" id="writing"><div class="skills-heading"><span class="eyebrow">04 • WRITING</span><h2>የጽሑፍ ልምምድ</h2><p>ርዕስ ምረጥና በእንግሊዝኛ ጻፍ። ጽሑፍህ በዚህ Browser ላይ በራስ-ሰር ይቀመጣል።</p></div>
+<div class="skill-content-card"><div class="skill-toolbar"><label for="writing-level">ደረጃ</label><select id="writing-level"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></div><span class="skill-level" id="writing-badge">BEGINNER</span><h3 id="writing-prompt"></h3><p id="writing-guidance" class="muted-copy"></p><textarea id="writing-draft" rows="8" placeholder="Write your answer in English..."></textarea><div class="writing-meta"><span id="word-count">0 words</span><span id="save-status" aria-live="polite">Not saved yet</span></div><div class="self-check"><label><input type="checkbox"> የአረፍተ ነገር መጀመሪያ ፊደል አስተካክያለሁ።</label><label><input type="checkbox"> የግስ ጊዜን በትክክል ተጠቅሜያለሁ።</label><label><input type="checkbox"> ሥርዓተ ነጥብ አስገብቻለሁ።</label></div><div class="skill-actions"><button class="btn btn-primary" id="save-writing">ጽሑፌን አስቀምጥ</button><button class="btn btn-secondary" id="clear-writing">አጽዳ</button></div><p class="speaking-note">ማስታወሻ፦ ጽሑፍህ በዚህ መሣሪያ ላይ ብቻ ይቀመጣል፤ ወደ አካውንት አይሰቀልም፣ የሰዋሰው ማረሚያም አያደርግም።</p></div>
+</section>
+</main>
+<script src="script.js?v=14"></script><script src="skills.js?v=14"></script>
+</body></html>
