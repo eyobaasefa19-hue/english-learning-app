@@ -130,3 +130,11 @@ This is a broad practical learning curriculum, not an exhaustive dictionary of e
 - Writing: level-based prompts, live word count, local draft saving, and a simple self-review checklist. It does not provide automatic grammar correction.
 - Added navigation links and an offline app-shell entry for the new page.
 - Writing drafts and practice state are stored locally in the current browser/device; no cloud account or sync is included.
+
+
+## v15 — Grammar Master Academy
+- Added a dedicated grammar learning academy with 19 structured modules from Beginner to Advanced.
+- Covers parts of speech, nouns, pronouns, articles, adjectives/adverbs, prepositions, all 12 tense forms grouped into practical lessons, subject–verb agreement, modals, questions/negatives, passive voice, conditionals, reported speech, relative clauses, linking, inversion and subjunctive structures.
+- Each module includes Amharic guidance, English examples, browser text-to-speech, and a self-check question with feedback.
+- Added search, level filtering, local completion tracking, home-page entry and navigation links.
+- Updated the service-worker cache to v15. Grammar completion data is local to the current browser/device and is not cloud-synced.
