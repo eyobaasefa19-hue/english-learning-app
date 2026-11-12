@@ -38,5 +38,17 @@ function startQuiz(){
  document.getElementById('next-vocab-question').addEventListener('click',()=>{quiz.dataset.done='0';startQuiz()});
 }
 document.getElementById('start-vocab-quiz').addEventListener('click',()=>{quiz.dataset.done='0';startQuiz()});
+// Flashcards and spaced repetition; review data stays on this device.
+const reviewKey='eyoblingua_vocab_review_v1';
+const reviewState=()=>{try{return JSON.parse(localStorage.getItem(reviewKey)||'{}')}catch(e){return {}}};
+const saveReview=s=>{try{localStorage.setItem(reviewKey,JSON.stringify(s))}catch(e){}};
+const flashArea=document.getElementById('flashcard-area'), reviewStats=document.getElementById('review-stats');
+let deck=[],deckIndex=0,showingAnswer=false;
+const dayStamp=()=>new Date().toISOString().slice(0,10);
+function updateReviewStats(){const s=reviewState(),today=dayStamp(),due=words.filter(w=>!s[w.word]||!s[w.word].due||s[w.word].due<=today).length;reviewStats.innerHTML=`<span><b>${due}</b> ዛሬ ለክለሳ</span><span><b>${Object.keys(s).length}</b> በእቅድ ውስጥ</span><span><b>${saved().length}</b> የተቀመጡ ቃላት</span>`}
+function beginFlashcards(){const s=reviewState(),today=dayStamp(),savedWords=words.filter(w=>saved().includes(w.word)),source=savedWords.length?savedWords:words;deck=source.filter(w=>!s[w.word]||!s[w.word].due||s[w.word].due<=today);if(!deck.length)deck=source;deck=deck.slice().sort(()=>Math.random()-.5);deckIndex=0;showingAnswer=false;showFlashcard()}
+function showFlashcard(){if(deckIndex>=deck.length){flashArea.innerHTML=`<div class="flashcard-finished"><h3>🎉 የክለሳ ዙር ተጠናቋል!</h3><p>${deck.length} ካርዶችን ጨርሰሃል።</p><button class="btn btn-secondary" id="restart-flashcards">እንደገና ጀምር</button></div>`;document.getElementById('restart-flashcards').addEventListener('click',beginFlashcards);updateReviewStats();return}const w=deck[deckIndex],s=reviewState()[w.word]||{};if(!showingAnswer){flashArea.innerHTML=`<div class="flashcard-face"><div class="flashcard-progress">CARD ${deckIndex+1} / ${deck.length}</div><span class="word-type">${w.level} · ${w.pos}</span><h3>${w.word}</h3><p>የአማርኛ ትርጉሙን አስታውስ</p><button class="btn btn-primary" id="reveal-flashcard">መልሱን አሳይ</button></div>`;document.getElementById('reveal-flashcard').addEventListener('click',()=>{showingAnswer=true;showFlashcard()})}else{flashArea.innerHTML=`<div class="flashcard-face is-answer"><div class="flashcard-progress">CARD ${deckIndex+1} / ${deck.length}</div><h3>${w.word}</h3><p class="translation">${w.meaning}</p><p class="word-example">${w.example}</p><p class="review-next">ቀድሞ የተሳካ ክለሳ: ${s.stage||0}</p><div class="review-rating"><button data-rate="again">እንደገና</button><button data-rate="hard">ከባድ</button><button data-rate="good">ጥሩ</button><button data-rate="easy">ቀላል</button></div></div>`;flashArea.querySelectorAll('[data-rate]').forEach(b=>b.addEventListener('click',()=>rateFlashcard(w,b.dataset.rate)))}}
+function rateFlashcard(w,r){const s=reviewState(),old=s[w.word]||{stage:0},i=Math.min(old.stage||0,4),days={again:0,hard:1,good:[1,3,7,14,30][i],easy:[3,7,14,30,60][i]},stage=r==='again'?0:Math.min((old.stage||0)+(r==='hard'?0:1),5),due=new Date();due.setDate(due.getDate()+days[r]);s[w.word]={stage,due:due.toISOString().slice(0,10),lastReviewed:dayStamp(),rating:r};saveReview(s);deckIndex++;showingAnswer=false;updateReviewStats();showFlashcard()}
+document.getElementById('start-flashcards')?.addEventListener('click',beginFlashcards);updateReviewStats();
 render();
 })();

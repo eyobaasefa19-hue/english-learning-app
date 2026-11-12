@@ -156,3 +156,11 @@ This is a broad practical learning curriculum, not an exhaustive dictionary of e
 
 ### Vocabulary feature notes
 The 90 entries are a curated starter collection, not a complete dictionary. Speech depends on English voices available in the browser/device. Saved and learned states are local to the current browser and are not synced across devices. Offline use requires a successful first visit over HTTPS and service-worker caching.
+
+
+## v18 — Vocabulary Flashcards & Spaced Repetition
+- Added interactive flashcards with reveal-answer and self-rating controls.
+- Added review scheduling: Again (today), Hard (1 day), Good (progressive 1–30 days), and Easy (progressive 3–60 days).
+- Added due-today, scheduled-word, and saved-word counts.
+- Review schedule is stored locally on the current browser/device; it is not synced between devices.
+- Updated vocabulary page asset versions and service-worker cache to v18.
