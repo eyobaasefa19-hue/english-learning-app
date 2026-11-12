@@ -172,3 +172,12 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 - Added a seven-day activity view and manual refresh control.
 - Updated service-worker cache to v19 and precached dashboard.js.
 - Progress remains local to the current browser/device. Dashboard activity is based on days the app records a visit, not verified study duration.
+
+
+## v20 — Quality Assurance & Cache Consistency
+- Standardized HTML asset query versions to v20 so pages request the same release assets.
+- Rebuilt the service-worker app shell to precache the exact current HTML, CSS, JavaScript, dashboard, manifest and icon assets.
+- Corrected the Learning Dashboard to read the vocabulary counters and saved-word keys used by the current app.
+- JavaScript syntax, ZIP integrity, local asset references, and HTML navigation targets were statically checked.
+- Browser/device runtime, installed-PWA offline behavior, and Android speech playback still require real-device testing.
+- Progress remains browser-local; there is no cloud account or cross-device synchronization.

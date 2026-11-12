@@ -15,15 +15,17 @@ function render(){
  const activity=read("eyoblingua_activity_days_v3",[]);
  const completed=read("eyoblingua_completed_lessons_v2",[]);
  const grammar=read("eyoblingua_grammar_completed_v16",[]);
- const learned=read("eyoblingua_dictionary_learned_v1",[]);
- const saved=read("eyoblingua_dictionary_saved_v1",[]);
+ const dictionaryLearned=read("eyoblingua_dictionary_learned_v1",[]);
+ const learnedCount=Array.isArray(dictionaryLearned)?dictionaryLearned.length:Number(read("eyoblingua_words_learned_v2",0))||0;
+ const dictionarySaved=read("eyoblingua_dictionary_saved_v1",[]);
+ const saved=Array.isArray(dictionarySaved)?dictionarySaved:read("eyoblingua_saved_words_v3",[]);
  const history=read("eyoblingua_quiz_history_v1",[]);
  const validHistory=Array.isArray(history)?history.filter(x=>x&&Number.isFinite(Number(x.percent))):[];
  setText("dash-streak",streak(activity));setText("dash-active-days",activity.length);
- setText("dash-quiz-count",validHistory.length);setText("dash-learned-words",learned.length);
+ setText("dash-quiz-count",validHistory.length);setText("dash-learned-words",learnedCount);
  setText("dash-lesson-label",`${completed.length} / 82`);setBar("dash-lesson-bar",completed.length,82);
  setText("dash-grammar-label",`${grammar.length} / 33`);setBar("dash-grammar-bar",grammar.length,33);
- setText("dash-vocab-label",learned.length);setBar("dash-vocab-bar",learned.length,90);
+ setText("dash-vocab-label",learnedCount);setBar("dash-vocab-bar",learnedCount,90);
  setText("dash-saved-label",saved.length);
  const week=$("dash-week");
  if(week){const today=new Date(),days=[];for(let i=6;i>=0;i--){const d=new Date(today);d.setDate(today.getDate()-i);const key=localDate(d);days.push({key,label:["እሑድ","ሰኞ","ማክሰኞ","ረቡዕ","ሐሙስ","ዓርብ","ቅዳሜ"][d.getDay()],active:activity.includes(key)})}

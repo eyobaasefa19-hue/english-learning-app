@@ -1,5 +1,47 @@
-const CACHE_NAME = "eyoblingua-curriculum-v19";
-const APP_SHELL = ["./","./index.html","./lessons.html","./quiz.html","./profile.html","./dashboard.js?v=19","./vocabulary.html","./verbs.html","./practice.html","./skills.html","./grammar.html","./offline.html","./style.css?v=19","./script.js?v=19","./vocabulary.js?v=18","./verbs.js?v=16","./practice.js?v=16","./skills.js?v=16","./grammar.js?v=16","./manifest.json","./icon.svg","./icon-192.png","./icon-512.png"];
-self.addEventListener("install", event => event.waitUntil((async()=>{const c=await caches.open(CACHE_NAME);await Promise.all(APP_SHELL.map(async u=>{try{await c.add(u)}catch(e){console.warn("Cache skipped:",u)}}));await self.skipWaiting()})()));
-self.addEventListener("activate", event => event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k!==CACHE_NAME).map(k=>caches.delete(k)));await self.clients.claim()})()));
-self.addEventListener("fetch", event=>{const r=event.request;if(r.method!=="GET")return;const u=new URL(r.url);if(u.origin!==self.location.origin)return;if(r.mode==="navigate"){event.respondWith((async()=>{try{const res=await fetch(r);if(res.ok){const c=await caches.open(CACHE_NAME);c.put(r,res.clone()).catch(()=>{})}return res}catch(e){return (await caches.match(r))||(await caches.match("./offline.html"))||(await caches.match("./index.html"))}})());return}event.respondWith((async()=>{const cached=await caches.match(r);if(cached)return cached;try{const res=await fetch(r);if(res.ok){const c=await caches.open(CACHE_NAME);c.put(r,res.clone()).catch(()=>{})}return res}catch(e){return new Response("Offline resource unavailable",{status:503,headers:{"Content-Type":"text/plain"}})}})())});
+const CACHE_NAME = "eyoblingua-quality-v20";
+const APP_SHELL = [
+ "./","./index.html","./lessons.html","./quiz.html","./profile.html","./dashboard.js?v=20",
+ "./vocabulary.html","./verbs.html","./practice.html","./skills.html","./grammar.html","./offline.html",
+ "./style.css?v=20","./script.js?v=20","./vocabulary.js?v=20","./verbs.js?v=20",
+ "./practice.js?v=20","./skills.js?v=20","./grammar.js?v=20","./manifest.json",
+ "./icon.svg","./icon-192.png","./icon-512.png"
+];
+self.addEventListener("install",event=>event.waitUntil((async()=>{
+ const cache=await caches.open(CACHE_NAME);
+ await Promise.all(APP_SHELL.map(async url=>{try{await cache.add(url)}catch(error){console.warn("Optional cache item skipped:",url,error)}}));
+ await self.skipWaiting();
+})()));
+self.addEventListener("activate",event=>event.waitUntil((async()=>{
+ const keys=await caches.keys();
+ await Promise.all(keys.filter(key=>key!==CACHE_NAME).map(key=>caches.delete(key)));
+ await self.clients.claim();
+})()));
+self.addEventListener("fetch",event=>{
+ const request=event.request;
+ if(request.method!=="GET")return;
+ const url=new URL(request.url);
+ if(url.origin!==self.location.origin)return;
+ if(request.mode==="navigate"){
+  event.respondWith((async()=>{
+   try{
+    const response=await fetch(request);
+    if(response.ok){const cache=await caches.open(CACHE_NAME);cache.put(request,response.clone()).catch(()=>{});}
+    return response;
+   }catch(error){
+    return (await caches.match(request))||(await caches.match("./offline.html"))||(await caches.match("./index.html"));
+   }
+  })());
+  return;
+ }
+ event.respondWith((async()=>{
+  const cached=await caches.match(request);
+  if(cached)return cached;
+  try{
+   const response=await fetch(request);
+   if(response.ok){const cache=await caches.open(CACHE_NAME);cache.put(request,response.clone()).catch(()=>{});}
+   return response;
+  }catch(error){
+   return new Response("Offline resource unavailable",{status:503,headers:{"Content-Type":"text/plain"}});
+  }
+ })());
+});
