@@ -230,3 +230,29 @@ body{background:var(--bg);color:var(--ink);letter-spacing:-.012em}
 /* v18 flashcards and spaced repetition */
 .flashcard-panel{margin:22px 0;background:var(--card);border:1px solid var(--border);border-radius:22px;padding:22px;box-shadow:var(--shadow)}.flashcard-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}.flashcard-heading h2{margin:5px 0}.flashcard-heading p{margin:0;color:var(--muted)}.review-stats{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.review-stats span{padding:9px 13px;border-radius:12px;background:var(--bg);color:var(--muted);font-size:.86rem}.review-stats b{color:var(--primary);margin-right:4px}.flashcard-area{border-top:1px solid var(--border);padding-top:16px}.flashcard-face{max-width:650px;margin:0 auto;text-align:center;padding:24px 18px;border:1px solid var(--border);border-radius:18px;background:var(--bg)}.flashcard-face h3{font-size:clamp(1.8rem,6vw,2.6rem);margin:14px 0 5px}.flashcard-face>p{color:var(--muted)}.flashcard-progress{font-size:.76rem;font-weight:800;color:var(--muted);letter-spacing:.08em;margin-bottom:15px}.review-next{font-size:.8rem}.review-rating{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px}.review-rating button{border:1px solid var(--border);border-radius:11px;padding:10px 15px;background:var(--card);color:var(--ink);font-weight:800;cursor:pointer}.review-rating button:first-child{border-color:#f59e0b;color:#b45309}.review-rating button:last-child{border-color:#10b981;color:#047857}.flashcard-finished{text-align:center;padding:20px}@media(max-width:650px){.flashcard-panel{padding:16px}.flashcard-heading{align-items:stretch;flex-direction:column}.flashcard-heading .btn{width:100%}.review-stats{display:grid;grid-template-columns:1fr}}
 :root[data-theme="dark"] .flashcard-face,:root[data-theme="dark"] .review-stats span{background:#1c2743;border-color:#34415f}
+
+
+/* v19 Learning Dashboard */
+.dashboard-section{margin:28px 0 36px}
+.dashboard-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px}
+.dashboard-heading h2{margin:5px 0}.dashboard-heading p{margin:0;color:var(--muted)}
+.dashboard-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+.dashboard-kpi,.dashboard-panel{background:var(--card,#fff);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+.dashboard-kpi span,.dashboard-kpi small{display:block;color:var(--muted);font-size:.86rem}
+.dashboard-kpi strong{display:inline-block;font-size:2rem;line-height:1.35;margin:5px 6px 0 0;color:var(--primary)}
+.dashboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dashboard-panel h3{margin:0 0 16px;font-size:1.05rem}
+.week-chart{height:150px;display:grid;grid-template-columns:repeat(7,1fr);gap:9px;align-items:end}
+.week-day{height:100%;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:8px}
+.week-bar-wrap{height:112px;width:min(100%,32px);display:flex;align-items:end;background:var(--bg,#f5f6fb);border-radius:9px;overflow:hidden}
+.week-bar{display:block;width:100%;background:#cbd5e1;border-radius:8px}
+.week-bar.is-active{background:var(--primary,#4f46e5)}
+.week-day small{font-size:.68rem;color:var(--muted);white-space:nowrap}
+.dashboard-hint,.dashboard-privacy{font-size:.8rem;color:var(--muted);margin:14px 0 0}
+.skill-progress-row{display:grid;grid-template-columns:1fr auto;gap:7px 12px;margin:15px 0;font-size:.9rem}
+.skill-progress-row span{color:var(--muted)}.skill-progress-row .progress-track{grid-column:1/-1;height:9px}
+.quiz-history-row{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:12px 2px;border-bottom:1px solid var(--border);font-size:.9rem}
+.quiz-history-row:last-child{border:0}.quiz-history-row b{color:var(--primary);font-size:1.05rem}.quiz-history-row small{color:var(--muted)}
+.dashboard-empty{color:var(--muted);font-size:.9rem}.dashboard-privacy{text-align:center;margin:18px 0}
+:root[data-theme="dark"] .dashboard-kpi,:root[data-theme="dark"] .dashboard-panel{background:#17213a;border-color:#34415f}
+@media(max-width:760px){.dashboard-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid{grid-template-columns:1fr}.dashboard-heading{align-items:flex-start;flex-direction:column}.dashboard-heading .btn{width:100%}}

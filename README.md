@@ -164,3 +164,11 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 - Added due-today, scheduled-word, and saved-word counts.
 - Review schedule is stored locally on the current browser/device; it is not synced between devices.
 - Updated vocabulary page asset versions and service-worker cache to v18.
+
+
+## v19 — Learning Dashboard
+- Added a mobile-friendly dashboard to the profile page with learning streak, active days, quiz attempts, vocabulary learned, lesson and grammar completion, saved words, and recent quiz history.
+- Dashboard reads existing local progress keys; no new account or cloud service is required.
+- Added a seven-day activity view and manual refresh control.
+- Updated service-worker cache to v19 and precached dashboard.js.
+- Progress remains local to the current browser/device. Dashboard activity is based on days the app records a visit, not verified study duration.
