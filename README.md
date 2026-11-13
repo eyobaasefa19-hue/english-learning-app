@@ -1,4 +1,4 @@
-# EyobLingua — A2 Course Update v6
+# EyobLingua — Version 22 (Final QA)
 
 A mobile-first English-learning website with Amharic support, designed to be edited and tested from an Android phone.
 
@@ -19,6 +19,13 @@ A mobile-first English-learning website with Amharic support, designed to be edi
 4. Open the published HTTPS address in Chrome.
 
 You may also preview `index.html` locally, but some features (especially service workers/PWA installation) require an HTTPS website or localhost.
+
+## Version 22 QA notes
+- HTML pages reference the same v22 asset version.
+- JavaScript files pass Node.js syntax checks.
+- Local HTML asset references and service-worker precache paths were checked.
+- PWA icon files match their declared 192×192 and 512×512 dimensions.
+- Device/browser runtime behavior still needs real-device testing after deployment.
 
 ## Important limitations
 - This is a front-end starter. Profile and progress data are stored only in the current browser/device using localStorage. There is no real account system, cloud database, admin panel, or cross-device sync yet.
