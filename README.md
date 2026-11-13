@@ -195,3 +195,13 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 - Updated the profile dashboard script reference to the same v22 release as the other pages.
 - Static validation: JavaScript syntax, local HTML asset paths, manifest JSON, and ZIP integrity checked.
 - Device behavior should still be confirmed after deployment; static checks are not a substitute for browser testing.
+
+
+## v23 — Guided Learning Path
+- Added a clear three-stage learning roadmap to the Lessons page: Beginner (A1), Intermediate (A2–B1), and Advanced (B2–C1).
+- Added direct jump links to the first lesson in each learning stage.
+- Added a short Amharic study routine to help learners study, listen, repeat, and track completion.
+- Standardized page asset query versions and the service-worker cache to v23.
+- Existing progress remains stored locally on the learner's device.
+- Static validation: JavaScript syntax, HTML local references, duplicate IDs, manifest JSON, service-worker precache paths, and ZIP integrity checked.
+- Browser runtime and deployed-PWA behavior must still be verified on the learner's device.

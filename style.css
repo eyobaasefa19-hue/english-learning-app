@@ -256,3 +256,10 @@ body{background:var(--bg);color:var(--ink);letter-spacing:-.012em}
 .dashboard-empty{color:var(--muted);font-size:.9rem}.dashboard-privacy{text-align:center;margin:18px 0}
 :root[data-theme="dark"] .dashboard-kpi,:root[data-theme="dark"] .dashboard-panel{background:#17213a;border-color:#34415f}
 @media(max-width:760px){.dashboard-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid{grid-template-columns:1fr}.dashboard-heading{align-items:flex-start;flex-direction:column}.dashboard-heading .btn{width:100%}}
+
+/* v23 guided learning path */
+.guided-path{margin:0 0 18px}
+.notice-card{margin:18px 0 26px;padding:16px 18px;border:1px solid var(--border);border-left:4px solid var(--primary);border-radius:14px;background:var(--card);color:var(--ink);line-height:1.7}
+.notice-card strong{display:block;margin-bottom:4px}
+.lesson-card[id]{scroll-margin-top:18px}
+@media(max-width:760px){.guided-path{grid-template-columns:1fr}.guided-path .level-card p{min-height:0}}
