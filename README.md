@@ -1,4 +1,4 @@
-# EyobLingua — Version 22 (Final QA)
+# EyobLingua — Version 24 (A1 Beginner Checkpoint)
 
 A mobile-first English-learning website with Amharic support, designed to be edited and tested from an Android phone.
 
@@ -205,3 +205,11 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 - Existing progress remains stored locally on the learner's device.
 - Static validation: JavaScript syntax, HTML local references, duplicate IDs, manifest JSON, service-worker precache paths, and ZIP integrity checked.
 - Browser runtime and deployed-PWA behavior must still be verified on the learner's device.
+
+
+## Version 24 — A1 Beginner Checkpoint
+- Added a five-question A1 checkpoint to the Lessons page, covering greetings, introductions, country of origin, numbers, and polite responses.
+- Added answer validation, score feedback in Amharic, retry/reset, and local score saving.
+- Updated service-worker cache name and HTML asset query versions to v24.
+- The checkpoint is self-contained and works offline after the Lessons page has been cached.
+- Static QA is not a substitute for deployment and real-device testing.
