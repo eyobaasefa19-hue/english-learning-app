@@ -213,3 +213,11 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 - Updated service-worker cache name and HTML asset query versions to v24.
 - The checkpoint is self-contained and works offline after the Lessons page has been cached.
 - Static QA is not a substitute for deployment and real-device testing.
+
+
+## Version 25 — English Placement Test
+- Added `placement.html` with a 12-question self-assessment spanning beginner through advanced grammar and usage.
+- Gives a suggested A1, A2–B1, or B2–C1 learning route and links to the matching lesson section.
+- Saves the latest result locally in `eyoblingua_placement_v25`.
+- Added placement-test navigation links and updated the service-worker cache version to v25.
+- This is an informal self-assessment, not an official CEFR certification.

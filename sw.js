@@ -1,9 +1,9 @@
-const CACHE_NAME = "eyoblingua-beginner-checkpoint-v24";
+const CACHE_NAME = "eyoblingua-placement-test-v25";
 const APP_SHELL = [
- "./","./index.html","./lessons.html","./quiz.html","./profile.html","./dashboard.js?v=24",
+ "./","./index.html","./placement.html","./lessons.html","./quiz.html","./profile.html","./dashboard.js?v=25",
  "./vocabulary.html","./verbs.html","./practice.html","./skills.html","./grammar.html","./offline.html",
- "./style.css?v=24","./script.js?v=24","./vocabulary.js?v=24","./verbs.js?v=24",
- "./practice.js?v=24","./skills.js?v=24","./grammar.js?v=24","./manifest.json",
+ "./style.css?v=25","./script.js?v=25","./vocabulary.js?v=25","./verbs.js?v=25",
+ "./practice.js?v=25","./skills.js?v=25","./grammar.js?v=25","./manifest.json",
  "./icon.svg","./icon-192.png","./icon-512.png"
 ];
 self.addEventListener("install",event=>event.waitUntil((async()=>{
