@@ -181,3 +181,10 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 - JavaScript syntax, ZIP integrity, local asset references, and HTML navigation targets were statically checked.
 - Browser/device runtime, installed-PWA offline behavior, and Android speech playback still require real-device testing.
 - Progress remains browser-local; there is no cloud account or cross-device synchronization.
+
+
+## v22 — Final QA consistency update
+- Standardized HTML asset query versions and the service-worker precache URLs to v22.
+- Updated the profile dashboard script reference to the same v22 release as the other pages.
+- Static validation: JavaScript syntax, local HTML asset paths, manifest JSON, and ZIP integrity checked.
+- Device behavior should still be confirmed after deployment; static checks are not a substitute for browser testing.
