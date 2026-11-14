@@ -2,7 +2,7 @@
   "id": "./",
   "name": "EyobLingua — English Learning Platform",
   "short_name": "EyobLingua",
-  "description": "Learn English with Amharic support, lessons, quizzes and offline access.",
+  "description": "Free English learning app with Amharic support and an offline A1 guided learning roadmap.",
   "lang": "am",
   "start_url": "./index.html",
   "scope": "./",

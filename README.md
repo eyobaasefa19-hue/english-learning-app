@@ -1,4 +1,4 @@
-# EyobLingua — Version 24 (A1 Beginner Checkpoint)
+# EyobLingua — Version 27 (A1 Guided Course Roadmap)
 
 A mobile-first English-learning website with Amharic support, designed to be edited and tested from an Android phone.
 
@@ -221,3 +221,15 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 - Saves the latest result locally in `eyoblingua_placement_v25`.
 - Added placement-test navigation links and updated the service-worker cache version to v25.
 - This is an informal self-assessment, not an official CEFR certification.
+
+
+## v27 — A1 Guided Course Roadmap
+- Added a 10-unit A1 beginner roadmap linked directly to the first ten beginner lessons.
+- Shows completion count, progress bar, completed units, and the next recommended lesson.
+- Reuses `eyoblingua_completed_lessons_v2`; existing learner progress is preserved.
+- Added `a1-roadmap.js` to the offline app shell and bumped asset/cache versions to v27.
+- Learner progress remains local to the current browser/device.
+
+### v27 verification
+- JavaScript syntax, HTML local-asset references, service-worker app-shell paths, and ZIP integrity were checked.
+- Browser/device runtime behavior still needs testing after deployment.
