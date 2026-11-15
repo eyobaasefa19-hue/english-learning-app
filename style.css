@@ -321,3 +321,9 @@ body{background:var(--bg);color:var(--ink);letter-spacing:-.012em}
 .airline-quick-copy p{margin:0 0 14px;color:var(--muted);line-height:1.6}
 .nav-career-link{font-weight:800}
 @media(max-width:520px){.airline-quick-access{align-items:flex-start;gap:12px;padding:15px}.airline-quick-icon{width:52px;height:52px;flex-basis:52px;font-size:1.8rem}.airline-quick-copy h2{font-size:1.05rem}}
+
+
+/* v32: listen to mock interview questions and sample answers */
+.airline-mock-listen{display:inline-flex;align-items:center;margin-top:10px;min-height:36px;padding:7px 11px;font-size:.82rem}
+.airline-mock-sample{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.airline-mock-sample #airline-mock-sample-text{line-height:1.65}

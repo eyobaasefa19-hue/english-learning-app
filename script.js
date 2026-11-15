@@ -238,7 +238,10 @@
       const item = airlineQuestions[current];
       qEl.textContent = item.q; amEl.textContent = item.am; tipEl.textContent = "Tip: " + item.tip;
       answerEl.value = answers[current] || "";
-      sampleBox.textContent = "Sample answer: " + item.sample;
+      $("airline-mock-sample-text").textContent = "Sample answer: " + item.sample;
+      $("airline-mock-question-audio").dataset.speak = item.q;
+      $("airline-mock-sample-audio").dataset.speak = item.sample;
+      $("airline-mock-sample-audio").textContent = "🔊 Listen to sample";
       sampleBox.classList.add("hidden");
       sampleBtn.textContent = "Show sample answer";
       $("airline-mock-prev").disabled = current === 0;
@@ -250,6 +253,11 @@
       $("airline-mock-summary").classList.add("hidden");
     };
     answerEl.addEventListener("input", saveMock);
+    const playMockAudio = (button) => {
+      if (typeof speakText === "function") speakText(button.dataset.speak || "", button);
+    };
+    $("airline-mock-question-audio").addEventListener("click", function(){ playMockAudio(this); });
+    $("airline-mock-sample-audio").addEventListener("click", function(){ playMockAudio(this); });
     sampleBtn.addEventListener("click", () => {
       const hidden = sampleBox.classList.toggle("hidden");
       sampleBtn.textContent = hidden ? "Show sample answer" : "Hide sample answer";

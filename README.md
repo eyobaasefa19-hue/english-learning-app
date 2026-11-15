@@ -262,3 +262,8 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 ## v31 — Airline Interview Quick Access
 - Added a dedicated Airline Interview shortcut card to the homepage.
 - Added a direct Airline Interview link to the navigation menus for quicker access from other pages.
+
+
+## v32 — Airline Interview Speaking Audio
+- Added listen buttons for each mock interview question and its sample answer.
+- Uses the existing English text-to-speech support; availability depends on the browser/device voice engine.
