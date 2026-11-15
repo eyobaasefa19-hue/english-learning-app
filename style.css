@@ -302,3 +302,13 @@ body{background:var(--bg);color:var(--ink);letter-spacing:-.012em}
 .airline-mock-feedback{line-height:1.7}
 .airline-mock-note{margin-top:14px}
 @media(max-width:520px){.airline-mock-panel{padding:13px}.airline-mock-actions button{flex:1 1 42%}}
+
+
+/* v30: standalone career interview card */
+.career-shortcut-section{margin:26px 0 34px;padding:20px;border:2px solid var(--primary);border-radius:22px;background:var(--card);scroll-margin-top:20px}
+.career-shortcut-heading{margin-bottom:14px}
+.career-shortcut-heading h2{margin:6px 0}
+.career-shortcut-heading p{color:var(--muted);margin:0;line-height:1.6}
+.career-shortcut-section .airline-interview-card{margin:0;box-shadow:none}
+.career-shortcut-section .airline-interview-card>h2{line-height:1.35}
+@media(max-width:520px){.career-shortcut-section{padding:12px;margin:18px 0 26px}}

@@ -252,3 +252,8 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 - Added an offline-first, bilingual airline interview practice mode with 8 questions.
 - Learners can draft answers, reveal sample answers, self-rate each response, and review a summary.
 - Draft answers and self-ratings are saved locally in browser storage; this is self-assessment, not automated AI grading.
+
+
+## v30 — Standalone Airline Interview Card
+- Moved the complete Airline Interview Masterclass, including its mock interview practice, into a dedicated Career English section near the top of Lessons.
+- The card is now easy to find without scrolling through the full curriculum; its content and practice features remain in one place.
