@@ -284,6 +284,36 @@
     renderMock();
   }
 
+
+  // Airline interview 7-day preparation checklist (saved locally for offline use).
+  const airlinePlanRoot = $("airline-seven-day-plan");
+  if (airlinePlanRoot) {
+    const planKey = "eyoblingua_airline_7day_plan_v1";
+    const planChecks = Array.from(airlinePlanRoot.querySelectorAll("[data-airline-day]"));
+    let completedDays = [];
+    try { completedDays = JSON.parse(localStorage.getItem(planKey) || "[]"); } catch (_) {}
+    if (!Array.isArray(completedDays)) completedDays = [];
+    const renderAirlinePlan = () => {
+      planChecks.forEach((check, index) => { check.checked = completedDays.includes(index); });
+      const count = completedDays.length;
+      $("airline-plan-progress-text").textContent = `${count} / 7 days completed`;
+      $("airline-plan-progress-bar").style.width = `${(count / 7) * 100}%`;
+    };
+    planChecks.forEach((check, index) => check.addEventListener("change", () => {
+      completedDays = completedDays.filter(day => day !== index);
+      if (check.checked) completedDays.push(index);
+      completedDays.sort((a,b)=>a-b);
+      try { localStorage.setItem(planKey, JSON.stringify(completedDays)); } catch (_) {}
+      renderAirlinePlan();
+    }));
+    $("airline-plan-reset").addEventListener("click", () => {
+      completedDays = [];
+      try { localStorage.removeItem(planKey); } catch (_) {}
+      renderAirlinePlan();
+    });
+    renderAirlinePlan();
+  }
+
   // Quiz
   const quizData = [
     {question:"'Nice to meet you' የሚለው መቼ ይጠቀማል?", options:["ሲሰናበቱ","ሰው ሲያመሰግኑ","አዲስ ሰው ሲተዋወቁ","ይቅርታ ሲጠይቁ"], correct:2, explain:"አዲስ ሰው ሲተዋወቁ 'Nice to meet you' ማለት ይቻላል።"},

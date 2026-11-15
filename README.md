@@ -267,3 +267,8 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 ## v32 — Airline Interview Speaking Audio
 - Added listen buttons for each mock interview question and its sample answer.
 - Uses the existing English text-to-speech support; availability depends on the browser/device voice engine.
+
+
+## v33 — Airline Interview 7-Day Preparation Plan
+- Added a bilingual 7-day interview preparation checklist inside the standalone Airline Interview card.
+- Checklist completion and progress are stored locally for offline use, with a reset control.
