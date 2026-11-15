@@ -246,3 +246,9 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 ### v28 verification
 - ZIP integrity, JavaScript syntax, HTML local file references, and service-worker precache paths were checked.
 - Browser/device runtime behavior should be tested after deployment.
+
+
+## v29 — Airline Mock Interview
+- Added an offline-first, bilingual airline interview practice mode with 8 questions.
+- Learners can draft answers, reveal sample answers, self-rate each response, and review a summary.
+- Draft answers and self-ratings are saved locally in browser storage; this is self-assessment, not automated AI grading.

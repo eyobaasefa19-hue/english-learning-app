@@ -206,6 +206,76 @@
   }));
   updateLessonButtons();
 
+
+  // Airline interview mock practice (offline-first; answers are self-assessed, not AI-graded).
+  const airlineQuestions = [
+    {q:"Tell me about yourself.", am:"ስለራስህ ንገረኝ።", tip:"Mention your education, strengths, and interest in the role.", sample:"Good morning. I have completed my education and I am a responsible, respectful, and hardworking person. I enjoy helping people and learning new skills. I would be happy to contribute to your team and provide professional service to passengers."},
+    {q:"Why do you want to work for our airline?", am:"ለምን በእኛ አየር መንገድ መሥራት ትፈልጋለህ?", tip:"Connect your motivation to service, safety, teamwork, and learning.", sample:"I want to work for your airline because I value professional service, passenger safety, and teamwork. I am eager to learn and contribute positively to the organization."},
+    {q:"What are your greatest strengths?", am:"ትልቁ ጥንካሬዎችህ ምንድናቸው?", tip:"Choose two real strengths and briefly explain how they help at work.", sample:"My strengths are patience, responsibility, and communication. I try to listen carefully, stay respectful, and complete my tasks accurately."},
+    {q:"How would you handle an upset passenger?", am:"የተበሳጨ ተሳፋሪን እንዴት ታስተናግዳለህ?", tip:"Show calm listening, empathy, correct information, and following company procedure.", sample:"I would remain calm, listen carefully, and show understanding. I would explain the available options clearly and follow the airline's procedures. If needed, I would ask my supervisor for support."},
+    {q:"Describe a time you worked as part of a team.", am:"በቡድን የሠራህበትን ጊዜ ግለጽ።", tip:"Use STAR: Situation, Task, Action, Result. Use a true school, volunteer, or work example.", sample:"During a group project, we had a deadline. My task was to organize part of the work. I communicated with my teammates and completed my part on time. We finished the project together."},
+    {q:"How do you work under pressure?", am:"በጫና ውስጥ እንዴት ትሠራለህ?", tip:"Explain how you prioritize, stay calm, and ask for help when appropriate.", sample:"I stay calm, identify the most urgent task, and follow the correct procedures. I communicate with my team and ask for guidance when necessary."},
+    {q:"What would you do if you did not know the answer to a passenger's question?", am:"የተሳፋሪ ጥያቄ መልስ ካላወቅህ ምን ታደርጋለህ?", tip:"Never guess. Check an approved source or ask an authorized colleague.", sample:"I would not guess or give incorrect information. I would politely explain that I will check, then confirm the correct information through the approved system or an authorized colleague."},
+    {q:"Why should we select you?", am:"ለምን እንመርጥህ?", tip:"Summarize relevant strengths, willingness to learn, reliability, and honest motivation.", sample:"You should consider me because I am responsible, willing to learn, and committed to respectful customer service. I will follow procedures, work well with the team, and keep improving my skills."}
+  ];
+  const airlineStoreKey = "eyoblingua_airline_mock_v1";
+  const airlineSaved = (() => {
+    try { return JSON.parse(localStorage.getItem(airlineStoreKey) || "{}") || {}; } catch (_) { return {}; }
+  })();
+  const mockRoot = $("airline-mock-interview");
+  if (mockRoot) {
+    let current = 0;
+    const answers = Array.isArray(airlineSaved.answers) ? airlineSaved.answers : [];
+    const ratings = Array.isArray(airlineSaved.ratings) ? airlineSaved.ratings : [];
+    const qEl = $("airline-mock-question"), amEl = $("airline-mock-amharic");
+    const tipEl = $("airline-mock-tip"), answerEl = $("airline-mock-answer");
+    const sampleBox = $("airline-mock-sample-box"), sampleBtn = $("airline-mock-sample");
+    const saveMock = () => {
+      answers[current] = answerEl.value;
+      try { localStorage.setItem(airlineStoreKey, JSON.stringify({answers, ratings})); } catch (_) {}
+    };
+    const renderMock = () => {
+      const item = airlineQuestions[current];
+      qEl.textContent = item.q; amEl.textContent = item.am; tipEl.textContent = "Tip: " + item.tip;
+      answerEl.value = answers[current] || "";
+      sampleBox.textContent = "Sample answer: " + item.sample;
+      sampleBox.classList.add("hidden");
+      sampleBtn.textContent = "Show sample answer";
+      $("airline-mock-prev").disabled = current === 0;
+      $("airline-mock-next").textContent = current === airlineQuestions.length - 1 ? "View my results" : "Next question";
+      $("airline-mock-progress-text").textContent = `Question ${current+1} of ${airlineQuestions.length} · ${ratings.filter(Boolean).length} rated`;
+      $("airline-mock-progress-bar").style.width = `${(ratings.filter(Boolean).length / airlineQuestions.length) * 100}%`;
+      $("airline-mock-rating-status").textContent = ratings[current] ? `የመረጥከው ደረጃ: ${ratings[current]} / 5` : "ለዚህ ጥያቄ የራስህን ደረጃ ምረጥ።";
+      mockRoot.querySelectorAll("[data-airline-rating]").forEach(b => b.classList.toggle("selected", Number(b.dataset.airlineRating) === Number(ratings[current])));
+      $("airline-mock-summary").classList.add("hidden");
+    };
+    answerEl.addEventListener("input", saveMock);
+    sampleBtn.addEventListener("click", () => {
+      const hidden = sampleBox.classList.toggle("hidden");
+      sampleBtn.textContent = hidden ? "Show sample answer" : "Hide sample answer";
+    });
+    $("airline-mock-prev").addEventListener("click", () => { saveMock(); if (current > 0) { current--; renderMock(); } });
+    $("airline-mock-next").addEventListener("click", () => {
+      saveMock();
+      if (current < airlineQuestions.length - 1) { current++; renderMock(); return; }
+      const rated = ratings.filter(Boolean);
+      const average = rated.length ? (rated.reduce((a,b)=>a+Number(b),0)/rated.length).toFixed(1) : "—";
+      const summary = $("airline-mock-summary");
+      summary.innerHTML = `<strong>Practice summary / የልምምድ ውጤት</strong><p>${rated.length} of ${airlineQuestions.length} questions rated · Average self-rating: ${average} / 5</p><p>የሚቀጥለው እርምጃ፦ 1 ወይም 2 የሰጠሃቸውን መልሶች እንደገና ተለማመድ። መልሶችህን በእውነተኛ ልምድህ ላይ መሠረት አድርግ።</p>`;
+      summary.classList.remove("hidden");
+      summary.scrollIntoView({behavior:"smooth",block:"nearest"});
+    });
+    mockRoot.querySelectorAll("[data-airline-rating]").forEach(b => b.addEventListener("click", () => {
+      ratings[current] = Number(b.dataset.airlineRating);
+      saveMock();
+      $("airline-mock-rating-status").textContent = `የመረጥከው ደረጃ: ${ratings[current]} / 5`;
+      mockRoot.querySelectorAll("[data-airline-rating]").forEach(x => x.classList.toggle("selected", x === b));
+      $("airline-mock-progress-text").textContent = `Question ${current+1} of ${airlineQuestions.length} · ${ratings.filter(Boolean).length} rated`;
+      $("airline-mock-progress-bar").style.width = `${(ratings.filter(Boolean).length / airlineQuestions.length) * 100}%`;
+    }));
+    renderMock();
+  }
+
   // Quiz
   const quizData = [
     {question:"'Nice to meet you' የሚለው መቼ ይጠቀማል?", options:["ሲሰናበቱ","ሰው ሲያመሰግኑ","አዲስ ሰው ሲተዋወቁ","ይቅርታ ሲጠይቁ"], correct:2, explain:"አዲስ ሰው ሲተዋወቁ 'Nice to meet you' ማለት ይቻላል።"},

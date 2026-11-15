@@ -275,3 +275,30 @@ body{background:var(--bg);color:var(--ink);letter-spacing:-.012em}
 
 /* v27: A1 guided course roadmap */
 .a1-roadmap{margin:22px 0;padding:22px;border:1px solid var(--border);border-radius:18px;background:var(--card)}.a1-roadmap .dashboard-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.a1-progress-summary{display:flex;flex-direction:column;align-items:flex-end;gap:3px;white-space:nowrap}.a1-progress-summary strong{font-size:1.45rem}.a1-progress-summary span{color:var(--muted);font-size:.82rem}.a1-roadmap .progress-track{margin:14px 0;overflow:hidden}.a1-roadmap-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px;padding-left:26px}.a1-roadmap-list li{padding:5px 0}.a1-roadmap-list a{color:var(--text);text-decoration:none}.a1-roadmap-list a:hover,.a1-roadmap-list a:focus-visible{text-decoration:underline}.a1-roadmap-list li.is-complete a{color:var(--success,#16834a)}.a1-roadmap-list li.is-complete a::after{content:" ✓";font-weight:700}.a1-roadmap-list li.is-current{font-weight:700}@media(max-width:600px){.a1-roadmap .dashboard-heading{flex-direction:column}.a1-progress-summary{align-items:flex-start}.a1-roadmap-list{grid-template-columns:1fr}}
+
+
+/* v29 airline interview practice */
+.airline-mock-panel{margin:22px 0;padding:18px;border:1px solid var(--border);border-radius:18px;background:var(--card);color:var(--ink)}
+.airline-mock-panel>p{color:var(--muted);line-height:1.65}
+.airline-mock-progress{margin:16px 0}
+.airline-mock-progress>span,.airline-mock-label{display:block;font-weight:800;font-size:.88rem;margin-bottom:8px}
+.airline-mock-track{height:9px;background:var(--border);border-radius:99px;overflow:hidden}
+.airline-mock-track span{display:block;height:100%;width:0;background:var(--primary);transition:width .2s}
+.airline-mock-question{padding:16px;border-radius:14px;background:var(--surface,var(--bg));border:1px solid var(--border);margin:14px 0}
+.airline-mock-question strong,.airline-mock-question span,.airline-mock-question small{display:block}
+.airline-mock-question strong{font-size:1.05rem}
+.airline-mock-question span{margin-top:6px}
+.airline-mock-question small{color:var(--muted);margin-top:8px}
+.airline-mock-panel textarea{width:100%;box-sizing:border-box;border:1px solid var(--border);border-radius:12px;padding:12px;background:var(--bg);color:var(--ink);font:inherit;resize:vertical}
+.airline-mock-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.airline-mock-actions button{font:inherit;cursor:pointer}
+.airline-mock-actions button:disabled{opacity:.45;cursor:not-allowed}
+.airline-mock-sample,.airline-mock-summary{padding:14px;border:1px solid var(--border);border-radius:12px;margin:12px 0;line-height:1.6}
+.airline-mock-rating{margin-top:18px}
+.airline-mock-rating p,.airline-mock-rating small,.airline-mock-note{color:var(--muted);font-size:.84rem}
+.airline-rating-buttons{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.airline-rating-buttons button{width:42px;height:42px;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--ink);font-weight:800;cursor:pointer}
+.airline-rating-buttons button.selected{background:var(--primary);color:white;border-color:var(--primary)}
+.airline-mock-feedback{line-height:1.7}
+.airline-mock-note{margin-top:14px}
+@media(max-width:520px){.airline-mock-panel{padding:13px}.airline-mock-actions button{flex:1 1 42%}}
