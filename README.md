@@ -272,3 +272,9 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 ## v33 — Airline Interview 7-Day Preparation Plan
 - Added a bilingual 7-day interview preparation checklist inside the standalone Airline Interview card.
 - Checklist completion and progress are stored locally for offline use, with a reset control.
+
+
+## v34 — Airline Role-Specific Interview Practice
+- Added bilingual, listenable interview questions and sample answers for Cabin Crew, Ground Staff, Ticketing & Reservations, and Cargo Service roles.
+- Kept the role examples policy-aware: learners are reminded to verify details in authorised systems and follow employer procedures.
+- Preserved the standalone Airline Interview card, mock interview, audio practice, and saved 7-day preparation checklist.
