@@ -257,3 +257,8 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 ## v30 — Standalone Airline Interview Card
 - Moved the complete Airline Interview Masterclass, including its mock interview practice, into a dedicated Career English section near the top of Lessons.
 - The card is now easy to find without scrolling through the full curriculum; its content and practice features remain in one place.
+
+
+## v31 — Airline Interview Quick Access
+- Added a dedicated Airline Interview shortcut card to the homepage.
+- Added a direct Airline Interview link to the navigation menus for quicker access from other pages.
