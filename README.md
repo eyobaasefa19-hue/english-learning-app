@@ -1,4 +1,4 @@
-# EyobLingua — Version 27 (A1 Guided Course Roadmap)
+# EyobLingua — Version 28 (Airline Interview Masterclass)
 
 A mobile-first English-learning website with Amharic support, designed to be edited and tested from an Android phone.
 
@@ -233,3 +233,16 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 ### v27 verification
 - JavaScript syntax, HTML local-asset references, service-worker app-shell paths, and ZIP integrity were checked.
 - Browser/device runtime behavior still needs testing after deployment.
+
+
+## v28 — Airline Interview Masterclass
+- Added one comprehensive bilingual English–Amharic lesson card to `lessons.html`.
+- Covers self-introduction, general airline interview questions, cabin crew questions, airport/ground staff scenarios, essential vocabulary, STAR answer structure, interview-day preparation, and speaking practice.
+- Includes English text-to-speech buttons using the existing app audio controls.
+- Added the lesson to the existing completion/progress system using the unique key `airline-interview`.
+- Updated asset query versions and service-worker cache name to v28.
+- Sample answers are templates: applicants should adapt them truthfully to their real education, skills, and experience.
+
+### v28 verification
+- ZIP integrity, JavaScript syntax, HTML local file references, and service-worker precache paths were checked.
+- Browser/device runtime behavior should be tested after deployment.
