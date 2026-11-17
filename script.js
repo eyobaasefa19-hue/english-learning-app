@@ -222,6 +222,34 @@
   const airlineSaved = (() => {
     try { return JSON.parse(localStorage.getItem(airlineStoreKey) || "{}") || {}; } catch (_) { return {}; }
   })();
+  // Combined airline interview practice dashboard. This is a practice tracker, not a hiring prediction.
+  const updateAirlineReadiness = () => {
+    const panel = $("airline-readiness");
+    if (!panel) return;
+    let plan = [], mock = {};
+    try { plan = JSON.parse(localStorage.getItem("eyoblingua_airline_7day_plan_v1") || "[]"); } catch (_) {}
+    try { mock = JSON.parse(localStorage.getItem("eyoblingua_airline_mock_v1") || "{}") || {}; } catch (_) {}
+    if (!Array.isArray(plan)) plan = [];
+    const ratings = Array.isArray(mock.ratings) ? mock.ratings : [];
+    const rated = ratings.filter(v => Number(v) >= 1 && Number(v) <= 5);
+    const daysDone = new Set(plan.filter(v => Number.isInteger(v) && v >= 0 && v < 7)).size;
+    const average = rated.length ? (rated.reduce((sum, value) => sum + Number(value), 0) / rated.length).toFixed(1) : "—";
+    const percent = Math.round(((daysDone + rated.length) / 15) * 100);
+    $("airline-readiness-percent").textContent = `${percent}% practice progress`;
+    $("airline-readiness-status").textContent = percent === 100 ? "All practice tasks completed" : percent >= 60 ? "Good progress" : percent >= 25 ? "Building your practice" : "Keep practising";
+    $("airline-readiness-days").textContent = `${daysDone} / 7`;
+    $("airline-readiness-rated").textContent = `${rated.length} / 8`;
+    $("airline-readiness-average").textContent = `${average} / 5`;
+    $("airline-readiness-bar").style.width = `${percent}%`;
+    $("airline-readiness-track").setAttribute("aria-valuenow", String(percent));
+    let next = "ቀጣይ፦ ከ7 ቀን እቅዱ አንድ ተግባር ጀምር።";
+    if (daysDone < 7) next = "ቀጣይ፦ ያልተጠናቀቀውን የ7 ቀን ተግባር ቀጥል።";
+    else if (rated.length < 8) next = "ቀጣይ፦ በMock Interview ውስጥ ያልተገመገሙ መልሶችን ገምግም።";
+    else if (Number(average) < 3) next = "ቀጣይ፦ ዝቅተኛ ደረጃ የሰጠሃቸውን መልሶች እንደገና ጻፍና በድምፅ ተለማመድ።";
+    else next = "ቀጣይ፦ ሙሉ Mock Interview እንደገና ተለማመድ፤ እውነተኛ ልምድህን ተጠቀም።";
+    $("airline-readiness-next").textContent = next;
+  };
+
   const mockRoot = $("airline-mock-interview");
   if (mockRoot) {
     let current = 0;
@@ -251,6 +279,7 @@
       $("airline-mock-rating-status").textContent = ratings[current] ? `የመረጥከው ደረጃ: ${ratings[current]} / 5` : "ለዚህ ጥያቄ የራስህን ደረጃ ምረጥ።";
       mockRoot.querySelectorAll("[data-airline-rating]").forEach(b => b.classList.toggle("selected", Number(b.dataset.airlineRating) === Number(ratings[current])));
       $("airline-mock-summary").classList.add("hidden");
+      updateAirlineReadiness();
     };
     answerEl.addEventListener("input", saveMock);
     const playMockAudio = (button) => {
@@ -280,6 +309,7 @@
       mockRoot.querySelectorAll("[data-airline-rating]").forEach(x => x.classList.toggle("selected", x === b));
       $("airline-mock-progress-text").textContent = `Question ${current+1} of ${airlineQuestions.length} · ${ratings.filter(Boolean).length} rated`;
       $("airline-mock-progress-bar").style.width = `${(ratings.filter(Boolean).length / airlineQuestions.length) * 100}%`;
+      updateAirlineReadiness();
     }));
     renderMock();
   }
@@ -298,6 +328,7 @@
       const count = completedDays.length;
       $("airline-plan-progress-text").textContent = `${count} / 7 days completed`;
       $("airline-plan-progress-bar").style.width = `${(count / 7) * 100}%`;
+      updateAirlineReadiness();
     };
     planChecks.forEach((check, index) => check.addEventListener("change", () => {
       completedDays = completedDays.filter(day => day !== index);

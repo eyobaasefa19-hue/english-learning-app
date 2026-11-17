@@ -278,3 +278,9 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 - Added bilingual, listenable interview questions and sample answers for Cabin Crew, Ground Staff, Ticketing & Reservations, and Cargo Service roles.
 - Kept the role examples policy-aware: learners are reminded to verify details in authorised systems and follow employer procedures.
 - Preserved the standalone Airline Interview card, mock interview, audio practice, and saved 7-day preparation checklist.
+
+
+## v35 — Airline Interview Practice Progress Dashboard
+- Added a combined dashboard for the 7-day preparation checklist and mock-interview self-ratings.
+- Shows completed preparation days, rated mock answers, average self-rating, and a next-step suggestion.
+- Progress is calculated locally from existing saved data and works offline; it is a practice tracker, not an AI assessment or hiring prediction.

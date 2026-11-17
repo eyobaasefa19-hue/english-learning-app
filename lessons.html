@@ -179,6 +179,18 @@
     </div>
     <button type="button" class="btn btn-secondary" id="airline-plan-reset">Reset 7-day plan</button>
     <small class="airline-plan-note">ይህ የልምምድ እቅድ ነው፤ የቅጥር ዋስትና አይደለም። የአየር መንገዱን ይፋዊ መስፈርቶች ሁልጊዜ አረጋግጥ።</small>
+    <div class="airline-readiness-card" id="airline-readiness" style="margin-top:18px;padding:16px;border:1px solid var(--border);border-radius:14px;background:var(--card)">
+      <h3 style="margin-top:0">📊 Interview Practice Progress — የዝግጅት ሁኔታ</h3>
+      <p>የ7 ቀን እቅድህንና Mock Interview ራስ-ግምገማህን በአንድ ቦታ ተመልከት። ይህ የልምምድ መለኪያ ነው፤ የቅጥር ዕድልን ወይም ዝግጁነትን በሙያዊ መንገድ አይወስንም።</p>
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><strong id="airline-readiness-percent">0% practice progress</strong><span id="airline-readiness-status">Keep practising</span></div>
+      <div class="airline-plan-track" role="progressbar" aria-label="Interview practice progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="airline-readiness-track" style="margin:10px 0 14px"><span id="airline-readiness-bar"></span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px">
+        <div class="notice-card" style="padding:12px"><strong id="airline-readiness-days">0 / 7</strong><small>የተጠናቀቁ ቀናት</small></div>
+        <div class="notice-card" style="padding:12px"><strong id="airline-readiness-rated">0 / 8</strong><small>የተገመገሙ መልሶች</small></div>
+        <div class="notice-card" style="padding:12px"><strong id="airline-readiness-average">— / 5</strong><small>አማካይ ራስ-ግምገማ</small></div>
+      </div>
+      <p id="airline-readiness-next" aria-live="polite" style="margin-bottom:0">ቀጣይ፦ ከ7 ቀን እቅዱ አንድ ተግባር ጀምር።</p>
+    </div>
   </div>
 
   <button class="btn btn-primary mark-lesson" data-lesson="airline-interview">✓ ትምህርቱን ጨርሻለሁ</button>
