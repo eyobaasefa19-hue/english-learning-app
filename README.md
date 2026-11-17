@@ -1,4 +1,4 @@
-# EyobLingua — Version 28 (Airline Interview Masterclass)
+# EyobLingua — Version 36 (Platform QA & Learning Toolkit Refresh)
 
 A mobile-first English-learning website with Amharic support, designed to be edited and tested from an Android phone.
 
@@ -284,3 +284,19 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 - Added a combined dashboard for the 7-day preparation checklist and mock-interview self-ratings.
 - Shows completed preparation days, rated mock answers, average self-rating, and a next-step suggestion.
 - Progress is calculated locally from existing saved data and works offline; it is a practice tracker, not an AI assessment or hiring prediction.
+
+
+## v36 — Full 26-file audit and platform refresh
+- Audited all 26 files in the supplied project archive: 11 HTML pages, 8 JavaScript files, 1 CSS file, PWA manifest, service worker, 3 icon assets, and this README.
+- Corrected learner progress totals from 82 to 83 unique lesson completion keys (including the Airline Interview lesson).
+- Corrected the profile's learned-word count to use the actual Vocabulary Academy learned-word list instead of estimating four words per completed lesson.
+- Expanded the progress reset action to clear course, grammar, four-skills, vocabulary, spaced-review, quiz, placement, and airline-practice progress while preserving the learner name and theme.
+- Added a responsive homepage Learning Toolkit grid linking to all major learning areas.
+- Centralized service-worker registration in the shared application script so every page can initiate offline setup when opened over HTTPS.
+- Updated the service-worker cache name and all asset query versions to v36.
+- Confirmed 33 grammar units and 73 main quiz questions; the placement test contains 12 questions.
+- Static checks: ZIP integrity, JavaScript syntax, local asset references, internal page fragments, service-worker precache paths, manifest JSON, PWA icon dimensions, unique lesson keys, and key UI references.
+- Not yet complete: real Android Chrome/PWA runtime testing, accessibility audit with assistive technology, comprehensive educational proofreading by a qualified English teacher, and production backend/account/cloud-sync/security work.
+
+## Current production-readiness status
+EyobLingua is a substantial offline-capable frontend learning app, not yet a full global SaaS platform. Learner records are stored locally in the browser. There is no secure user authentication, cloud database, cross-device sync, instructor/admin CMS, content publishing workflow, server-side analytics, or automated backup. Offline use requires a successful first visit over HTTPS and service-worker installation. Speech depends on the device's installed speech voices.

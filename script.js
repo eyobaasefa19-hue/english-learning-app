@@ -1,5 +1,14 @@
 (() => {
   "use strict";
+
+  // Register the offline app shell from every page, not only selected entry pages.
+  if ("serviceWorker" in navigator && location.protocol === "https:") {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js?v=36").catch(error => {
+        console.warn("EyobLingua offline setup could not start:", error);
+      });
+    }, { once: true });
+  }
   const KEY = {
     name: "eyoblingua_name_v2",
     best: "eyoblingua_best_score_v2",
@@ -25,7 +34,10 @@
   const writeText = (key, value) => { try { localStorage.setItem(key, String(value)); } catch (_) {} };
   const removeStored = (key) => { try { localStorage.removeItem(key); } catch (_) {} };
   const bestScore = () => readNumber(KEY.best, 0);
-  const wordsLearned = () => readNumber(KEY.words, 0);
+  const wordsLearned = () => {
+    const learned = readJSON("eyoblingua_dictionary_learned_v1", null);
+    return Array.isArray(learned) ? learned.length : readNumber(KEY.words, 0);
+  };
 
   // Speech synthesis: supported in most browsers, but not guaranteed inside every APK/WebView.
   function speakText(text, button) {
@@ -517,7 +529,15 @@
   });
   $("reset-progress")?.addEventListener("click", () => {
     if (!confirm("የተቀመጠውን እድገት በዚህ አሳሽ ውስጥ ማጥፋት ትፈልጋለህ?")) return;
-    [KEY.best, KEY.completed, KEY.words, SAVED_WORDS_KEY, ACTIVITY_KEY, "eyoblingua_quiz_history_v1"].forEach(removeStored);
+    [
+      KEY.best, KEY.completed, KEY.words, SAVED_WORDS_KEY, ACTIVITY_KEY,
+      "eyoblingua_quiz_history_v1", "eyoblingua_grammar_completed_v16",
+      "eyoblingua_grammar_last_result_v16", "eyoblingua_four_skills_v1",
+      "eyoblingua_dictionary_learned_v1", "eyoblingua_dictionary_saved_v1",
+      "eyoblingua_vocab_review_v1", "eyoblingua_srs_v1",
+      "eyoblingua_airline_7day_plan_v1", "eyoblingua_airline_mock_v1",
+      "eyoblingua_placement_v25"
+    ].forEach(removeStored);
     refreshStats();
     if ($("profile-lessons")) updateProfile();
     updateLessonButtons();
@@ -532,15 +552,11 @@
     updateProfile();
   }
   function updateProfile() {
-    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 82`;
-    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 82 * 100, 100)}%`;
+    if ($("profile-lessons")) $("profile-lessons").textContent = `${completed().length} / 83`;
+    if ($("profile-lesson-bar")) $("profile-lesson-bar").style.width = `${Math.min(completed().length / 83 * 100, 100)}%`;
     if ($("profile-best")) $("profile-best").textContent = `${bestScore()}%`;
     if ($("profile-words")) $("profile-words").textContent = wordsLearned();
   }
-  // Count words shown in the lesson library as learned only when the user completes a lesson.
-  document.querySelectorAll(".mark-lesson").forEach(button => button.addEventListener("click", () => {
-    const ids = completed();
-    localStorage.setItem(KEY.words, String(ids.length * 4));
-  }));
+  // Vocabulary progress is counted from the learner's actual saved "learned" word list.
   refreshStats();
 })();
