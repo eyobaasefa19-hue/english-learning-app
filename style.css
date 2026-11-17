@@ -359,3 +359,13 @@ body{background:var(--bg);color:var(--ink);letter-spacing:-.012em}
 .learning-tool-card b{font-size:13px;color:var(--primary)}
 @media(max-width:980px){.learning-tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.learning-tools-grid{grid-template-columns:1fr;gap:12px}.learning-tool-card{min-height:0;padding:18px}.learning-tool-card h3{font-size:17px}}
+
+/* v37 Supabase account and sync UI */
+.account-card{background:var(--card-bg, #fff);border:1px solid var(--border-color, #e4e7ef);border-radius:18px;padding:22px;margin:0 0 22px;box-shadow:0 8px 28px rgba(20,30,70,.06)}
+.account-card h2{margin:0 0 10px}.account-intro{line-height:1.7;color:var(--muted,#667085)}
+.account-card label{display:block;margin:12px 0 6px;font-weight:700}
+.account-card input{display:block;width:100%;max-width:520px;padding:12px 14px;border:1px solid var(--border-color,#d5d9e4);border-radius:10px;background:var(--input-bg,#fff);color:inherit;font:inherit}
+.account-notice{padding:12px 14px;margin:12px 0;border-radius:10px;background:rgba(245,158,11,.10);line-height:1.6}
+.account-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.account-text-button{border:0;background:none;color:var(--primary,#3546a5);padding:12px 0;text-decoration:underline;font:inherit;cursor:pointer}
+#cloud-session[hidden],#cloud-account-form[hidden],#cloud-config-warning[hidden]{display:none}

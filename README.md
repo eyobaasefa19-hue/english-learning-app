@@ -300,3 +300,26 @@ The 90 entries are a curated starter collection, not a complete dictionary. Spee
 
 ## Current production-readiness status
 EyobLingua is a substantial offline-capable frontend learning app, not yet a full global SaaS platform. Learner records are stored locally in the browser. There is no secure user authentication, cloud database, cross-device sync, instructor/admin CMS, content publishing workflow, server-side analytics, or automated backup. Offline use requires a successful first visit over HTTPS and service-worker installation. Speech depends on the device's installed speech voices.
+
+
+## v37 — Supabase accounts and local-first sync
+
+This release adds a Supabase email/password account panel to `profile.html`, password-reset email flow, a user-scoped cloud data row, and a local-first sync routine. Learning continues in local browser storage while offline; sync is attempted after sign-in and when connectivity returns.
+
+### Required setup (not yet live until configured)
+1. Create a Supabase project.
+2. In **SQL Editor**, run the contents of `supabase-setup.sql`.
+3. In **Project Settings → API**, copy the Project URL and the publishable key (or legacy anon key).
+4. Paste those two public client values into `supabase-config.js` (`url` and `anonKey`).
+5. In **Authentication → URL Configuration**, add the deployed app origin to the allowed redirect URLs. Configure email confirmation as desired.
+6. Deploy over HTTPS and test account creation, email confirmation, sign-in, sync, sign-out, and password reset.
+
+**Security:** Never place a Supabase `service_role` or secret key in this browser project. The SQL enables Row Level Security and policies limit each signed-in user to rows where `user_id = auth.uid()`.
+
+### Sync behavior and limitations
+- App learning keys beginning `eyoblingua_` are snapshotted into one JSONB row per account.
+- Local storage remains the offline source of truth; the app does not require a network connection for lessons.
+- This first sync implementation uses a simple last-change/pending-write rule, not field-by-field merge. Avoid editing the same account simultaneously on multiple devices until a more advanced conflict resolver is added.
+- The Supabase JavaScript SDK is loaded from jsDelivr when online; account features require internet on first load. Cached lessons remain available offline.
+- Existing local data is uploaded on the first sync when no remote row exists; on a new device, remote data is downloaded when present.
+- Cloud sync is not active until a real Supabase project URL/key are configured and the SQL has been run.

@@ -23,7 +23,7 @@ function render(){
  const validHistory=Array.isArray(history)?history.filter(x=>x&&Number.isFinite(Number(x.percent))):[];
  setText("dash-streak",streak(activity));setText("dash-active-days",activity.length);
  setText("dash-quiz-count",validHistory.length);setText("dash-learned-words",learnedCount);
- setText("dash-lesson-label",`${completed.length} / 83`);setBar("dash-lesson-bar",completed.length,82);
+ setText("dash-lesson-label",`${completed.length} / 83`);setBar("dash-lesson-bar",completed.length,83);
  setText("dash-grammar-label",`${grammar.length} / 33`);setBar("dash-grammar-bar",grammar.length,33);
  setText("dash-vocab-label",learnedCount);setBar("dash-vocab-bar",learnedCount,90);
  setText("dash-saved-label",saved.length);
